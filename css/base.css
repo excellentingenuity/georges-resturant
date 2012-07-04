@@ -48,3 +48,25 @@ a.brand {
 h1.welcome {
     text-align:center;
 }
+/*touch block navigation*/
+.touch_menu_block {
+	border:solid #999999 thick;
+	border-radius:5px;
+	color:#000000;
+	text-align:center;
+	min-height: 15em;
+	vertical-align: center;
+}
+
+
+touch_menu_h2{
+	text-align:center;
+	vertical-align: center;
+}
+.touch_menu_block_a {
+	color:#000000;
+	font-size:large;
+	font-family: 'Arvo', serif;
+	text-decoration:none;
+	text-align:center;
+}
