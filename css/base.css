@@ -1,0 +1,50 @@
+/*CSS Document 
+ * Created 7/2012 by James Johnson of EI LLC
+ * Version 1.0
+ * Base css for Georges Bistro Order APP
+ */
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+/*header*/
+body {
+   font-family: 'PT Sans', sans-serif;
+}
+h1 {
+    font-family: 'Arvo', serif;
+    
+}
+h2 {
+    font-family: 'Arvo', serif;
+}
+h3 {
+    font-family: 'Arvo', serif;
+}
+.navbar {
+    background-image:none !important;
+    background-color: #5B7F00;
+    color:#FFFFFF;
+}
+.navbar-inner {
+        background-image:none !important;
+    background-color: #5B7F00;
+    color:#FFFFFF;
+}
+a.brand {
+    color:#FFFFFF !important;
+    font-weight:400;
+    font-family: 'Arvo', serif;
+}
+/*Main content area*/
+.main-content {
+    margin-top:3em;
+    margin-bottom:1em;
+    
+}
+/*footer*/
+.footer {
+    text-align:center;
+}
+/*home_index*/
+h1.welcome {
+    text-align:center;
+}
