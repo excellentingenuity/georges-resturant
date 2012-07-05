@@ -23,11 +23,11 @@
     </head>
     <body>
         <!--TODO:place page header here-->
-        <header class="container">
-           <div class="row">
+        <header class="container-fluid">
+           <div class="row-fluid">
                <div class="navbar navbar-fixed-top">
                    <div class="navbar-inner">
-                      <div class="container">
+                      <div class="container-fluid">
                           <a class="brand" href="<?php print(base_url()); ?>"><?php print($Name);?></a> 
                           <!-- TODO: add nav menu generation code here -->
                       </div> 

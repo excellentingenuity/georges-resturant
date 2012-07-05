@@ -12,5 +12,5 @@
     
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {sizer("right_side_bar", .90)});
+    $(document).ready(function() {sizer("right_side_bar_container", .80)});
 </script>

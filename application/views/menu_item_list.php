@@ -5,8 +5,8 @@
 
 //TODO:re-do this page to show in div blocks instead of a table
 ?>
-<div class="container main-content">
-    <div class="row">
+<div class="container-fluid main-content">
+    <div class="row-fluid">
         <table class="table-bordered">
         <thead><h1>Menu Items List</h1></thead>
              <?php 

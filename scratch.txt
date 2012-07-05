@@ -1,0 +1,1 @@
+<h1 class="welcome"><?php print($Name); ?></h1> //removed the redundant tag with name in the brand tag

@@ -73,6 +73,7 @@ touch_menu_h2{
 	font-family: 'Arvo', serif;
 	text-decoration:none;
 	text-align:center;
+	margin-left:.5em;
 }
 /*right side bar */
 .right_side_bar_container {

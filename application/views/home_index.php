@@ -3,11 +3,11 @@ $data = array('Name' => $Name, 'Version' => $Version, 'Page' => "Home");
 $this->load->view('header', $data);
 
 ?>
-<div class="container main-content">
-    <div class="row">
-        <h1 class="welcome"><?php print($Name); ?></h1>
+<div class="container-fluid main-content">
+    <div class="row-fluid">
+        
     </div>
-    <div class="row">
+    <div class="row-fluid">
      	<?php $this->load->view('touch_nav_menu', 'home');?>
         <?php $this->load->view('right_side_bar', 'home');?>
     </div>
