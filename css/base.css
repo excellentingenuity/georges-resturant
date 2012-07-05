@@ -49,13 +49,17 @@ h1.welcome {
     text-align:center;
 }
 /*touch block navigation*/
+.touch_menu_container {
+    margin:.5em;
+}
 .touch_menu_block {
 	border:solid #999999 thick;
 	border-radius:5px;
 	color:#000000;
 	text-align:center;
-	min-height: 15em;
-	vertical-align: center;
+	min-height: 4em;
+	margin-bottome:.5em;
+	
 }
 
 
@@ -69,4 +73,10 @@ touch_menu_h2{
 	font-family: 'Arvo', serif;
 	text-decoration:none;
 	text-align:center;
+}
+/*right side bar */
+.right_side_bar_container {
+    border:solid thick #999999;
+    border-radius:5px;
+    min-height:100%;
 }

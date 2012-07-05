@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML><!--TODO: Do all php processing in before displaying any other page elements to prevent header elements from displaying in the body-->
 <html lang="en">
     <head>
         
@@ -14,7 +14,11 @@
         <!-- js -->
         <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
-        
+        <?php echo $Page;
+        if($Page == "Home"){
+            printf('<script type="text/javascript" src="js/sizer.js"></script>');
+        }
+        ?>
         <title><?php print($Name);?></title>
     </head>
     <body>
@@ -24,7 +28,7 @@
                <div class="navbar navbar-fixed-top">
                    <div class="navbar-inner">
                       <div class="container">
-                          <a class="brand" href="<?php print(base_url()); ?>"><?php print($Name);?></a> <!-- TODO: get restaurant name dynamically and place here -->
+                          <a class="brand" href="<?php print(base_url()); ?>"><?php print($Name);?></a> 
                           <!-- TODO: add nav menu generation code here -->
                       </div> 
                    </div>

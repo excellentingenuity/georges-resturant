@@ -1,9 +1,9 @@
-   <footer class="container">
-       <div class="row">
-           <div class="footer">
-              Copyright 2012 - Web Restaurant - <?php print($Name);?> - Version <?php print($Version);?> <!--add version number and Resurant name here -->
+       <footer class="container">
+           <div class="row">
+               <div class="footer">
+                  Copyright 2012 - Web Restaurant - <?php print($Name);?> - Version <?php print($Version);?> 
+               </div>
            </div>
-       </div>
-   </footer>
+       </footer>
     </body>
 </html>

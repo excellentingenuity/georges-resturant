@@ -1,5 +1,5 @@
 <?php
-$data = array('Name' => $Name, 'Version' => $Version);
+$data = array('Name' => $Name, 'Version' => $Version, 'Page' => "Home");
 $this->load->view('header', $data);
 
 ?>
@@ -8,8 +8,8 @@ $this->load->view('header', $data);
         <h1 class="welcome"><?php print($Name); ?></h1>
     </div>
     <div class="row">
-     	<?php $this->load->view('touch_nav_menu', 'home')?>
-        <!--add default touch menu -->
+     	<?php $this->load->view('touch_nav_menu', 'home');?>
+        <?php $this->load->view('right_side_bar', 'home');?>
     </div>
 </div>
 <?php

@@ -3,7 +3,7 @@
 //$hdata = array('Name' => $Name, 'Version' => $Version);
 //$this->load->view('header', $hdata);
 
-
+//TODO:re-do this page to show in div blocks instead of a table
 ?>
 <div class="container main-content">
     <div class="row">
