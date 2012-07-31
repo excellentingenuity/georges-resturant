@@ -22,6 +22,17 @@ class Staff_model extends CI_Model {
     }
     return false;
   }
-    
+  public function get_permission($staff_name){
+      $this->db->select('idStaff');
+      $staffid = $this->db->get_where('Staff', array('staff_name'=>$staff_name), 1);
+      $my_staffid = $staffid->row();
+      //echo $my_staffid->idStaff;
+      $this->db->select('permission');
+      $my_permission = $this->db->get_where('Permissions', array('staff_id'=>$my_staffid->idStaff), 1);
+      if ($my_permission->num_rows > 0){
+          return $my_permission->row();
+      }
+      return false;
+  }  
 }
 ?>

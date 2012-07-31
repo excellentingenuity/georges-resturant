@@ -27,9 +27,11 @@
          
          if ($this->form_validation->run() !== false) {
             $authen =  $this->Staff_model->authenticate_staff($this->input->post('staff_name'), $this->input->post('passcode'));
-                    echo $authen;
+                    //echo $authen;
                       if ($authen !== false ){
                             $this->session->set_userdata('staff_name', $this->input->post('staff_name'));
+                            $my_perms = $this->Staff_model->get_permission($this->input->post('staff_name'));
+                            $this->session->set_userdata('permission_level', $my_perms->permission);
                             redirect('home');
                  }
          }
