@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+body {
+    text-align:center;
+}
+h1 {
+    font-family: 'Arvo', serif;
+    padding-bottom:1em;
+    
+}
+input {
+    display:block;
+}
+.login-form {
+    border-radius:5px;
+    border:#999999 solid 5px;
+    padding:1em;
+}
+.errors {
+    color:red;
+    text-align:center;
+}

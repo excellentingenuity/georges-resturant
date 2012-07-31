@@ -1,5 +1,5 @@
 <?php
-$data = array('Name' => $Name, 'Version' => $Version, 'Page' => "Home");
+$data = array('Name' => $Name, 'Version' => $Version, 'Page' => 'Home');
 $this->load->view('header', $data);
 
 ?>
@@ -8,11 +8,11 @@ $this->load->view('header', $data);
         
     </div>
     <div class="row-fluid">
-     	<?php $this->load->view('touch_nav_menu', 'home');?>
-        <?php $this->load->view('right_side_bar', 'home');?>
+     	<?php $this->load->view('touch_nav_menu', $data);?>
+        <?php $this->load->view('right_side_bar', $data);?>
     </div>
 </div>
 <?php
 $this->load->view('footer', $data);
-//include_once 'footer.php';
+
 ?>

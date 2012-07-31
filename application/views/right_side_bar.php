@@ -5,12 +5,18 @@
 
 
 ?>
-<div class="right_side_bar_container span2 pull-right">
-  <h2>Status</h2>  
+<div class="span2 pull-right well right_side_bar_container">
+  <span class="span12 right-sidebar-label">Status</span>  
     
-    
+    <!-- TODO add ajax to php to get messages -->
     
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {sizer("right_side_bar_container", .80)});
+    $(document).ready(function() {
+        if($('.breadcrumb').length != 0){
+            sizer("right_side_bar_container", .70);
+        }else {
+            sizer("right_side_bar_container", .80);
+        }
+    });
 </script>

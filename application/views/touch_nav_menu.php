@@ -6,12 +6,17 @@
  * 
  */
 $nav_array = array('home', 'menu_item', 'orders', 'tables');
+$nav_array_lables = array('Home', 'Menu', 'Orders', 'Tables');
+$i = 0;
 foreach ($nav_array as $item) {
-	if ($item == 'home'){
-		printf('<a class="touch_menu_block_a" href="' . base_url() . '"><div class="span2 touch_menu_block"><h2 class="touch_menu_h2">' . $item . '</h2></div></a>');
-	}else {
-		printf('<a class="touch_menu_block_a" href="' . base_url() . $item . '"><div class="span2 touch_menu_block"><h2 class="touch_menu_h2">' . $item . '</h2></div></a>');
+    
+	if ($item == 'home') {
+	    if ($Page != 'Home'){
+		printf('<div class="span2 touch_menu_block"><a class="touch_menu_block_a button" href="' . base_url() . '"><h2 class="touch_menu_h2">' . $nav_array_lables[$i] . '</h2></a></div>');
+	}}else {
+		printf('<div class="span2 touch_menu_block"><a class="touch_menu_block_a button" href="' . base_url() . $item . '"><h2 class="touch_menu_h2">' . $nav_array_lables[$i] . '</h2></a></div>');
 	}
+    $i++;
 }
 ?>
 </div>

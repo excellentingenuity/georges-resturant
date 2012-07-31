@@ -1,4 +1,7 @@
 <?php
+
+ if (! defined('BASEPATH')) exit('No direct script access allowed');
+
 class Menu_Item extends CI_Controller {
     protected $Name = "", $Version = "";
 	function __construct(){
@@ -13,7 +16,7 @@ class Menu_Item extends CI_Controller {
 	function index(){
 
 		$data['query'] = $this->Menu_item_model->get_all_items();
-        $hdata = array('Name' => $this->Name, 'Version' => $this->Version);
+        $hdata = array('Name' => $this->Name, 'Version' => $this->Version, 'Page' => 'Menu');
         $this->load->view('header', $hdata);
         $this->load->view('menu_item_list', $data);
         $this->load->view('footer', $hdata);

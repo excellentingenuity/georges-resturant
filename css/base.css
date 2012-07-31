@@ -34,9 +34,17 @@ a.brand {
     font-weight:400;
     font-family: 'Arvo', serif;
 }
+.breadcrumb > a {
+   color:#5B7F00; 
+    
+}
+.breadcrumb >a:hover{
+    color:#CD7F32;
+    text-decoration:none;
+}
 /*Main content area*/
 .main-content {
-    margin-top:3em;
+    margin-top:.5em;
     margin-bottom:1em;
     
 }
@@ -50,22 +58,24 @@ h1.welcome {
 }
 /*touch block navigation*/
 .touch_menu_container {
-    margin:.5em;
+    padding:.2em;
 }
 .touch_menu_block {
-	border:solid #999999 thick;
+	border:outset thin #CD7F32;
 	border-radius:5px;
-	color:#000000;
+	color:#FFFFFF;
 	text-align:center;
-	min-height: 4em;
-	margin-bottome:.5em;
-	
+	height:4em;
+    margin-bottom:.5em;
+    background-color:#5B7F00;
 }
 
 
-touch_menu_h2{
+.touch_menu_h2{
 	text-align:center;
 	vertical-align: center;
+	text-decoration:none;
+	color:#FFFFFF;
 }
 .touch_menu_block_a {
 	color:#000000;
@@ -73,11 +83,36 @@ touch_menu_h2{
 	font-family: 'Arvo', serif;
 	text-decoration:none;
 	text-align:center;
-	margin-left:.5em;
+	display:block;
+	height:100%;
+	width:100%;
+
+}
+.touch_menu_block_a:hover {
+    text-decoration:none;
 }
 /*right side bar */
 .right_side_bar_container {
-    border:solid thick #999999;
-    border-radius:5px;
+    /*border:solid thick #999999;
+    border-radius:5px;*/
     min-height:100%;
+    padding:0px;
+    text-align:center;
+}
+.right-sidebar-label {
+    font-size:2em;
+    vertical-align:center;
+    background-color:#B94A48;
+    color:#ffffff;
+    width:100%;
+    margin:0px;
+    border-radius:5px;
+}
+
+/*Menu*/
+.menu-block {
+    border-radius:5px;
+    border:outset #5B7F00 thin;
+    text-align:center;
+    
 }
