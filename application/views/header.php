@@ -7,16 +7,16 @@
         <link rel="icon" type="image/png" href="img/logo.png" />
         
         <!-- CSS -->
-        <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.css" /> 
-        <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-responsive.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="css/base.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php print(base_url()); ?>/css/bootstrap.css" /> 
+        <link rel="stylesheet" type="text/css" media="all" href="<?php print(base_url()); ?>/css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="<?php print(base_url()); ?>/css/base.css" />
         
         
         
         <!-- js -->
-        <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
-        <script type="text/javascript" src="js/bootstrap.js"></script>
-        <script type="text/javascript" src="js/sizer.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/jquery-1.7.2.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/sizer.js"></script>
         
         
         <title><?php print($Name);?> | <?php print($Page);?></title>
@@ -34,12 +34,7 @@
                       </div> 
                    </div>
                </div>
-               <?php if ($Page != 'Home'){
-                   print('<div class="breadcrumb">');
-                   print(anchor(base_url(), 'Home', 'title="Home"') . ' / ' . $Page);
-                   print('</div>');
-            //print('<div class="breadcrumb"><a href="' . base_url().'>Home</a>&nbsp;/&nbsp;' . $Page . '</div>'); 
-            } ?>
+
            </div>
            
         </header>
