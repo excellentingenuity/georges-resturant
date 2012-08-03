@@ -5,7 +5,7 @@
  * 
  * 
  */
-$nav_array = array('home', 'meals', 'orders', 'tables', 'kitchen');
+$nav_array = array('home', 'menu', 'orders', 'tables', 'kitchen');
 $nav_array_lables = array('Home', 'Menu', 'Orders', 'Tables', 'Kitchen');
 $i = 0;
 foreach ($nav_array as $item) {
