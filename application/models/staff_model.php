@@ -34,5 +34,19 @@ class Staff_model extends CI_Model {
       }
       return false;
   }  
+  public function get_my_id($my_name){
+         $qr = $this
+            ->db
+            ->select('idStaff')
+            ->where('staff_name', $my_name)  
+            ->limit(1)
+            ->get('Staff');
+         if($qr->num_rows > 0){
+             //print_r($qr->result_array());
+             $t_qr = $qr->row();
+             return $t_qr->idStaff;
+             
+         }
+  }
 }
 ?>

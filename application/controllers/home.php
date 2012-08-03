@@ -21,6 +21,12 @@ Class Home extends CI_Controller {
     }
     public function index() {
         
+        
+        $hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Home');
+        $this->load->view('partials/header', $hdata);
+        
+        $this->load->view('partials/footer', $hdata);
+       
     }    
 }
 
