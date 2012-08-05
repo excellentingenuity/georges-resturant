@@ -13,6 +13,7 @@ Class Order extends CI_Controller {
     function __construct(){
         parent::__construct();
         session_start();
+		$this->load->model('Order_model');
         $this->load->model('Config_model');
         $this->Config_model->load_config();
         $this->config_name = $this->Config_model->get_Name();
@@ -34,28 +35,52 @@ Class Order extends CI_Controller {
             case ('meal'):
                 $this->meal();
                 break;
+			case ('menu'):
+				$this->menu();
+				break;
         }
     }
     public function index(){
-        $this->control();
-    
+    	$this->control();
+		echo $this->step;
+	
+	
         $hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Order');
         $this->load->view('partials/header', $hdata);
         $this->load->view('order/'.$this->step, $this->data);
-        $this->load->view('partials/footer', $hdata);    
+        $this->load->view('partials/footer', $hdata); 
+  
     }
     public function table(){
+    	$complete = FALSE;
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('table', 'Table', 'required');
+		if($this->form_validation->run() != FALSE){
+			$this->Order_model->new_order($this->input->post('table'), $this->staff_id);
+			$complete = TRUE;
+		}
+		if ($complete == FALSE){ 
         $this->load->Model('Table_model');
-        //$this->Table_model->get_table_by_assigned();//get a list of tables for that waitstaff based on waitstaff id
+        $tables = $this->Table_model->get_table_by_assigned($this->staff_id);//get a list of tables for that waitstaff based on waitstaff id
+		
         $this->step_name = "Select Table";
-        $this->data = array('Step' => $this->step_name);
+        $this->data = array('Step' => $this->step_name, 'tables' => $tables);
+		} else {
+			//echo "in else stament loading category";
+			$this->step = 'menu';
+			$this->index();
+		} 
     }
     public function category(){
-        
+        $this->step_name = "Select Category";
+        $this->data = array('Step' => $this->step_name);
     }
     public function meal(){
         
     }
+	public function menu(){
+		
+	}
     
     
 }
