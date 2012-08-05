@@ -42,7 +42,7 @@ Class Order extends CI_Controller {
     }
     public function index(){
     	$this->control();
-		echo $this->step;
+		//echo $this->step;
 	
 	
         $hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Order');
@@ -72,13 +72,21 @@ Class Order extends CI_Controller {
 		} 
     }
     public function category(){
-        $this->step_name = "Select Category";
-        $this->data = array('Step' => $this->step_name);
+
     }
     public function meal(){
         
     }
 	public function menu(){
+		   			
+   		$this->load->model('Category_model');
+		$this->Category_model->load_categories();
+		
+		
+        $this->step_name = "Menu";
+        $this->data = array('Step' => $this->step_name, 'categories'=>$this->Category_model->my_categories);
+		
+
 		
 	}
     
