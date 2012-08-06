@@ -81,10 +81,12 @@ Class Order extends CI_Controller {
 		   			
    		$this->load->model('Category_model');
 		$this->Category_model->load_categories();
-		
+		$this->load->model('Meal_model');
+		$this->Meal_model->load_meals();
+		$order_id = $this->Order_model->__get('my_id');
 		
         $this->step_name = "Menu";
-        $this->data = array('Step' => $this->step_name, 'categories'=>$this->Category_model->my_categories);
+        $this->data = array('Step' => $this->step_name, 'categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals, 'order_id'=>$order_id);
 		
 
 		

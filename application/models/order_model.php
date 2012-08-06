@@ -21,9 +21,10 @@ Class Order_model extends CI_Model {
 		if ($staff != NULL){
 			$this->staff_id = $staff;
 		}
+		$CI =& get_instance();
 		$data = array('Staffid'=>$this->staff_id, 'Tableid'=> $this->table_id, 'isReady' => FALSE, 'isServed'=>FALSE, 'isPlaced'=>FALSE, 'isChanged'=>0);
-		$this->db->insert('Orders', $data);
-		$this->my_id = $this->db->insert_id();
+		$CI->db->insert('Orders', $data);
+		$this->my_id = $CI->db->insert_id();
 		//return $this->my_id;
 	}
 
