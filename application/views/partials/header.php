@@ -17,10 +17,11 @@
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/jquery-1.7.2.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/sizer.js"></script>
-        <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tab.js"></script>
+        
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-popover.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tooltip.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrapx-clickover.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tab.js"></script>
         
         
         <title><?php print($Name);?> | <?php print($Page);?></title>

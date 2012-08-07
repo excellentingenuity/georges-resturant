@@ -31,7 +31,7 @@ require_once "Item.php";
          $result = $CI->db->get('Meals');
          if($result->num_rows() > 0){
              $i = 0;
-             echo "number of meals in load all meals: $result->num_rows";
+             //echo "number of meals in load all meals: $result->num_rows";
              foreach($result->result_array() as $row){
                 $t_obj = new self;
                 $t_obj->load_meal($row);
@@ -194,7 +194,7 @@ require_once "Item.php";
           $CI->db->where('MenuOptionList.Itemid IS NOT ', "NULL", FALSE);
           $result = $CI->db->get('MenuOptionList');
           foreach ($result->result() as $row){
-              echo "Item id for meal id $this->id :" . $row->Itemid . "<br />";
+              //echo "Item id for meal id $this->id :" . $row->Itemid . "<br />";
               array_push($t_itemarray, $row->Itemid);
           }
          foreach ($t_itemarray as $idnum){

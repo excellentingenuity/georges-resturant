@@ -13,14 +13,14 @@
 
      }
      public function load($idnum){
-         echo "inside load item by idnum <br />";
+         //echo "inside load item by idnum <br />";
           if($idnum != NULL){
              $this->id = $idnum;
              $this->myload();
          } 
      }
      protected function myload(){
-         echo  "inside item my load <br />";
+        // echo  "inside item my load <br />";
          $CI =& get_instance();
          $CI->db->where('idMenu_Items', $this->id);
          $result = $CI->db->get('Menu_Items');

@@ -13,10 +13,10 @@ Class Meals_model extends CI_Model {
         /*
          * function loads all the meals from the db and places them in meal objects contained in the meal array
          */
-         echo "in load all meals inside meals model <br />";
+         //echo "in load all meals inside meals model <br />";
         //$this->meallist['meals'] = load_all_objects('Meal');
         //$this->text_print();
-        echo "in meal model before return of meallist to controller <br />";
+        //echo "in meal model before return of meallist to controller <br />";
         //return $this->meallist;
         return load_all_objects('Meal');
     }

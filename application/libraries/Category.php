@@ -6,7 +6,7 @@
  
  class Category{
      
-     protected $idCategories, $Name, $Ordered_By;
+     protected $idCategories, $Name, $Ordered_By=0;
      
      public function __construct(){
          
@@ -67,6 +67,21 @@
              }
          }
      }
+	 public function create_category($data_array){
+	 	$this->array_ini($data_array);
+		$t_array = array(
+            'Name' => $this->Name,
+            'Ordered_By' => $this->Ordered_By
+         );
+		 $CI =& get_instance();
+         if($CI->db->insert('Categories', $t_array)){
+         	$this->id = $CI->db->insert_id();
+         	$return = TRUE;
+		 }
+		 return $return;
+		 
+	 }
+
      public function echo_all(){
          echo $this->idCategories;
          echo $this->Name;
