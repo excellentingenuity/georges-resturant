@@ -4,7 +4,7 @@
         <meta name="viewport" content="user-scalable=no, width=device-width" />
         
         <!--fav icon -->
-        <link rel="icon" type="image/png" href="img/logo.png" />
+        <link rel="icon" type="image/png" href="<?php print(base_url()); ?>img/logo.png" />
         
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" media="all" href="<?php print(base_url()); ?>/css/bootstrap.css" /> 

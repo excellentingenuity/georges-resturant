@@ -98,6 +98,7 @@ h1.welcome {
     min-height:100%;
     padding:0px;
     text-align:center;
+    margin-left:0px;
 }
 .right-sidebar-label {
     font-size:2em;
@@ -114,5 +115,13 @@ h1.welcome {
     border-radius:5px;
     border:outset #5B7F00 thin;
     text-align:center;
+    margin-left:1em !important;
     
+}
+.menu-row{
+	margin-bottom:1em;
+}
+.menu-container{
+	padding-right:0px;
+	/*max-width:70%;*/
 }
