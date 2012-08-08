@@ -1,6 +1,8 @@
 <?php
  if (! defined('BASEPATH')) exit('No direct script access allowed');
  
+ //require_once"/home/demo/public_html/ERF/gr/dompdf/dompdf_config.inc.php";
+ 
  Class Menu extends CI_Controller {
     protected $Name, $Version, $data;
     
@@ -34,5 +36,43 @@
 
 		
 	}
+	public function print_menu(){
+		$this->fb->setEnabled(true);
+		$this->fb->log('Inside print menu function of menu controller');
+		$this->load->model('Category_model');
+		$this->Category_model->load_categories();
+		$this->load->model('Meal_model');
+		$this->Meal_model->load_meals();
+		$data = array('categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals);
+		$this->fb->log($data);
+		/*$this->load->library('Pdf');
+		$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', true);
+		$pdf->SetTitle('Menu');
+		$pdf->SetAutoPageBreak(true, '1');
+		$pdf->SetAuthor('Georges');
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+		$pdf->SetMargins('0', '0');
+		$pdf->SetDisplayMode('real', 'default', 'FullScreen');
+		$pdf->AddPage();*/
+		$html = $this->load->view('print_menu', $data, true);
+		$this->fb->log($html);
+		$this->load->helper(dompdf);
+		pdf_create($html, 'menu');
+		/*$pdf->writeHTML($html, true, true, true, 0, 'L');
+		$pdf->lastPage();
+		$pdf->Output('Menu.pdf', 'FI');*/
+
+	}
+	public function print_test(){
+		$this->fb->setEnabled(true);
+		$this->load->model('Category_model');
+		$this->Category_model->load_categories();
+		$this->load->model('Meal_model');
+		$this->Meal_model->load_meals();
+		$data = array('categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals);
+		$this->load->view('print_menu', $data);
+	}
+	
 }
  ?>

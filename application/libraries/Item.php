@@ -131,6 +131,9 @@
 				case "idMenu_Item":
 					$this->id = $value;
 					break;
+				case "id":
+					$this->id = $value;
+					break;
 				case "Name":
 					$this->name = $value;
 					break;
@@ -155,6 +158,31 @@
 					} 	
 			}
 		 }
+	 }
+	 public function get_item($id){
+	 	   $t_obj = new self;
+           $t_obj->load($id);
+		   return $t_obj;
+	 }
+	 public function update_item($post_array){
+	 	$return = FALSE;
+	 	$this->create_ini($post_array);
+	 	$t_array = array(
+            'Name' => $this->name,
+            'Description' => $this->description,
+            'Cost' => $this->cost,
+            'Category_id' => $this->category_id,
+            'Order_by'=>$this->order_by,
+            'Prep_Time' =>$this->prep_time
+         );
+		 echo "array loaded for update <br />";
+         $CI =& get_instance();
+		 $CI->db->where('idMenu_Items', $this->id);
+		 if($CI->db->update('Menu_Items', $t_array)){
+		 	echo "inside update is true <br />";
+		 	$return = TRUE;
+		 }
+		return $return; 
 	 }
  }
 ?>

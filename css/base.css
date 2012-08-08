@@ -125,3 +125,6 @@ h1.welcome {
 	padding-right:0px;
 	/*max-width:70%;*/
 }
+.tab-content{
+	overflow:auto;
+}

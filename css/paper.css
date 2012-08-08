@@ -1,0 +1,79 @@
+/*CSS DOCUMENT*/
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+
+
+body{
+	/*width:1024px;*/
+	/*margin:0in !important;*/
+	padding:5em;
+	font-size:14px;
+	font-family: 'PT Sans', sans-serif;
+	position:absolute; 
+	left:0px;
+	top:0px;
+	height:100%;
+	background-color:#F5DA81;
+	
+	color:#886A08;
+}
+.cover{
+
+	
+	padding:2em;
+}
+h1 {
+    font-family: 'Arvo', serif;
+    color:#243B0B;
+    
+}
+h2 {
+    font-family: 'Arvo', serif;
+    color:#8A0808;
+}
+h3 {
+    font-family: 'Arvo', serif;
+    color:#8A0808;
+}
+h4 {
+    font-family: 'Arvo', serif;
+    color:#8A0808;
+}
+.food-pic{
+	border-radius:5px;
+	border: medium solid #243B0B;
+	width:200px;
+}
+.spacer30p{
+	height:30px;
+}
+.spacer40p{
+	height:30px;
+}
+.spacer50p{
+	height:30px;
+}
+.spacer60p{
+	height:30px;
+}
+.spacer10em{
+	height:10em;
+}
+.spacer15em{
+	height:15em;
+}
+.spacer20em{
+	height:20em;
+}
+.spacer30em{
+	height:30em;
+}
+.spacer40em{
+	height:40em;
+}
+.spacer50em{
+	height:50em;
+}
+.spacer60em{
+	height:60em;
+}

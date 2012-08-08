@@ -6,7 +6,7 @@
  
  class Category{
      
-     protected $idCategories, $Name, $Ordered_By=0;
+     protected $idCategories, $Name, $Ordered_By=0, $group;
      
      public function __construct(){
          

@@ -19,5 +19,15 @@ Class Item_model extends CI_Model {
       $return = $titem->create_item($post_array);
       return $return;   
     }
+	public function get_item($id){
+		$titem = new Item;
+		$return = $titem->get_item($id);
+		return $return;
+	}
+	public function update_item($post_array){
+	  $titem = new Item;
+      $return = $titem->update_item($post_array);
+      return $return;
+	}
 }
 ?>

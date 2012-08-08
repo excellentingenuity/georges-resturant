@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="user-scalable=no, width=device-width" />
-        
+        <meta charset="UTF-8" />
         <!--fav icon -->
         <link rel="icon" type="image/png" href="<?php print(base_url()); ?>img/logo.png" />
         
@@ -22,6 +22,8 @@
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tooltip.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrapx-clickover.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tab.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/interface.js"></script>
         
         
         <title><?php print($Name);?> | <?php print($Page);?></title>
