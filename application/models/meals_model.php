@@ -41,6 +41,17 @@ Class Meals_model extends CI_Model {
             $meal->render();
         }
     }
+	public function get_meal($id){
+		$this->fb->log("get meal id is passing id ".$id);
+		$tmeal = new Meal;
+		$return = $tmeal->get_meal($id);
+		return $return;
+	}
+	public function update_meal($post_array){
+	  $tmeal = new Meal;
+      $return = $tmeal->update_meal($post_array);
+      return $return;
+	}
        
 }
 ?>

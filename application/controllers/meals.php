@@ -89,44 +89,68 @@ class Meals extends CI_Controller {
     function edit() {
    	/*
 	 * function to edit a meal
-	 * TODo:change the function from the copy and paste version to handle meals
-     /*   $return = FALSE;
+	 * TODO:change the function from the copy and paste version to handle meals*/
+        $return = FALSE;
+		$local_categories_list = load_all_objects('Category');
+        $local_categories= array();
+		$local_items = array();
+		$local_options = array();
+        foreach ($local_categories_list as $category){
+            $local_categories[$category->__get("idCategories")] = $category->__get('Name');
+        }
+        $local_options_list = load_all_objects('Option');
+        $local_items_list = load_all_objects('Item');
+        foreach ($local_items_list as $item){
+            $local_items[$item->__get("id")] = $item->__get('name');
+        }
+		foreach ($local_options_list as $option){
+			$local_options[$option->__get('id')] = $option->__get('name');
+		}
 		//echo "inside create function <br />";
 		if(isset($_POST['id'])){
 			//echo "inside post isset <br />";
 			$my_id = $_POST['id'];
-			$me = $this->Item_model->get_item($my_id);
+			$this->fb->log($my_id);
+			$me = $this->Meals_model->get_meal($my_id);
+			$this->fb->log($me);
 			$data = array(
 				'id'=>$me->__get('id'),
-				'name'=>$me->__get('name'),
+				'title'=>$me->__get('title'),
 				'description'=>$me->__get('description'),
-				'price'=>$me->__get('cost'),
-				'prep'=>$me->__get('prep_time')
+				'price'=>$me->__get('price'),
+				'categories'=>$local_categories,
+				'items'=>$local_items,
+				'options'=>$local_options
 			);
 		}else {
 			$data = array(
-				'name'=>'',
+				'title'=>'',
 				'description'=>'',
 				'price'=>'',
-				'prep'=>''
+				'categories'=>$local_categories,
+				'items'=>$local_items,
+				'options'=>$local_options
+				
 			);
 		}
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('name', 'Name', 'required|min_length[4]');
+        $this->form_validation->set_rules('title', 'Title', 'required|min_length[4]');
         $this->form_validation->set_rules('description', 'Description', 'required|min_length[2]');
-        $this->form_validation->set_rules('price', 'Price', 'required|min_length[2]');
-		$this->form_validation->set_rules('prep', 'Prep Time', 'required|min_length[1]');
+        $this->form_validation->set_rules('price', 'Price', 'required|min_length[3]');
+        $this->form_validation->set_rules('category', 'Category', 'required');
 		
 		if ($this->form_validation->run() !== false) {
 			echo "inside form validation <br />";
 			     $post_array = array(
-			     'id'=>$this->input->post('id'),
-                'Name' => $this->input->post('name'),
+			     'idMeals'=>$this->input->post('id'),
+                'Title' => $this->input->post('title'),
                 'Description' => $this->input->post('description'),
-                'Cost' => $this->input->post('price'),
-                'Prep_Time' => $this->input->post('prep')              
+                'Price' => $this->input->post('price'),
+                'Categoryid' => $this->input->post('category'),
+                'Items' => $t_items,
+                'Options' => $t_options              
              );
-			 $return = $this->Item_model->update_item($post_array);
+			 $return = $this->Meals_model->update_meal($post_array);
 		}
 		
         
@@ -135,10 +159,10 @@ class Meals extends CI_Controller {
             //$this->load->view('success_popup', $t_message);
 			redirect('menu', 'menu');
         }else{
-		$this->load->view('items/edit_item', $data);
+		$this->load->view('meal/edit_meal', $data);
         //echo "hello";
         }
-  */
+  
     }
     function delete(){
         

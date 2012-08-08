@@ -45,6 +45,26 @@ require_once "Item.php";
          return $t_array;
          
      }
+	 public function load ($idnum){
+	 	 if($idnum != NULL){
+             $this->id = $idnum;
+			 //echo "this id is $this->id";
+             $this->my_load();
+			// $this->fb->log($this->id);
+         }
+	 }
+	 public function my_load(){
+         $CI =& get_instance();
+		 $CI->db->where('idMeals', $this->id);
+         $result = $CI->db->get('Meals');
+         if($result->num_rows() > 0){
+			    $t_obj = new self;
+			 	$args= $result->row();
+                $this->object_ini($args);
+             	$this->get_items();
+         		$this->get_options();
+         }
+	 }
      public function load_meal ($param){
         /*
          *function loads a meal by array and loads the meals options and items 
@@ -170,10 +190,13 @@ require_once "Item.php";
           */
           $t_itemarray = array();
           $CI =& get_instance();
+          
+          //echo "this id in item is $this->id";
           $CI->db->select('MenuOptionList.Optionid');
           $CI->db->where('MenuOptionList.Mealid', $this->id);//$this->id
           $CI->db->where('MenuOptionList.Optionid IS NOT ', "NULL", FALSE);
           $result = $CI->db->get('MenuOptionList');
+		  //print_r("result is" . $result->result());
           foreach ($result->result() as $row){
               //echo "Option id for meal id $this->id :" . $row->Optionid . "<br />";
               array_push($t_itemarray, $row->Optionid);
@@ -223,5 +246,11 @@ require_once "Item.php";
      public function render(){
          
      }
+	 public function get_meal($id){
+	 	//echo "id is $id";
+	 	   $t_obj = new self;
+           $t_obj->load($id);
+		   return $t_obj;
+	 }
  }
 ?>
