@@ -78,7 +78,7 @@ protected $Name = "", $Version = "";
 		$this->form_validation->set_rules('prep', 'Prep Time', 'required|min_length[1]');
 		
 		if ($this->form_validation->run() !== false) {
-			echo "inside form validation <br />";
+			//echo "inside form validation <br />";
 			     $post_array = array(
 			     'id'=>$this->input->post('id'),
                 'Name' => $this->input->post('name'),

@@ -90,7 +90,10 @@
 	 	//echo "inside create ini <br />";
 	 	 foreach ($data_array as $key => $value){
 	 	 	switch ($key){
-				case "idMenu_Item":
+	 	 		case "id":
+					$this->id = $value;
+					break;
+				case "Menu_Optionsid":
 					$this->id = $value;
 					break;
 				case "Name":
@@ -103,11 +106,34 @@
 					$this->order_by = $value;
 					break;
 				case "Cost":
-					$this->cost = $value;
+					$this->cost_increase = $value;
 					break;
 	
 			}
 		 }
+	 }
+	 public function get_option($id){
+	 	   $t_obj = new self;
+           $t_obj->load($id);
+		   return $t_obj;
+	 }
+	 public function update_option($post_array){
+	 	$return = FALSE;
+	 	$this->create_ini($post_array);
+	 	$t_array = array(
+            'Name' => $this->name,
+            'Description' => $this->description,
+            'Cost_Increase' => $this->cost_increase,
+            'Order_By'=>$this->order_by
+         );
+		 //echo "array loaded for update <br />";
+         $CI =& get_instance();
+		 $CI->db->where('Menu_Optionsid', $this->id);
+		 if($CI->db->update('Menu_Options', $t_array)){
+		 	//$this->fb->log("inside update is true");
+		 	$return = TRUE;
+		 }
+		return $return; 
 	 }
      
      

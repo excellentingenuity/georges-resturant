@@ -71,6 +71,8 @@ if($my_type === 'edit'){
 									$ldesc = $meal->__get("description");
 									$tpop = '<p>'.$ldesc.'</p>';
 									$titems = $meal->__get('items');
+									$toptions = $meal->__get('options');
+									$this->fb->log("toptions is $toptions");
 									//print_r($titems);
 									foreach($titems as $item){
 										$item_name = $item->__get('name');
@@ -85,6 +87,22 @@ if($my_type === 'edit'){
 											$item_html = "<br /><b>No available Items to add.</b>";
 										}
 										$tpop .= $item_html;
+										// . $item_id . $item_desc;
+									}
+									foreach($toptions as $option){
+										$this->fb->log("inside options");
+										$option_name = $option->__get('name');
+										$option_desc = $option->__get('description');
+										$option_id = $option->__get('id');
+										$option_price = $option->__get('cost_increase');
+										$option_html;
+										//echo $item_name;
+										if($option_name != "None"){
+										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
+										}else {
+											$option_html = "<br /><b>No available Options to add.</b>";
+										}
+										$tpop .= $option_html;
 										// . $item_id . $item_desc;
 									}
 									$lmeal_title =  $meal->__get("title");
@@ -122,6 +140,9 @@ if($my_type === 'edit'){
 									$lmeal_title =  $meal->__get("title");
 									$tag_lmeal = str_replace(" ", "", $lmeal_title);
 									$titems = $meal->__get('items');
+									$toptions = $meal->__get('options');
+									$this->fb->log("toptions is $toptions");
+									//print_r('$topions');
 									//print_r($titems);
 									foreach($titems as $item){
 										$item_name = $item->__get('name');
@@ -136,6 +157,23 @@ if($my_type === 'edit'){
 											$item_html = "<br /><b>No available Items to add.</b>";
 										}
 										$tpop .= $item_html;
+										// . $item_id . $item_desc;
+									}
+									//print_r($toptions);
+									foreach($toptions as $option){
+										$this->fb->log("inside options");
+										$option_name = $option->__get('name');
+										$option_desc = $option->__get('description');
+										$option_id = $option->__get('id');
+										$option_price = $option->__get('cost_increase');
+										$option_html;
+										//echo $item_name;
+										if($option_name != "None"){
+										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
+										}else {
+											$option_html = "<br /><b>No available Options to add.</b>";
+										}
+										$tpop .= $option_html;
 										// . $item_id . $item_desc;
 									}
 									print '<div class="span3 menu-block" id="'.$lid.'" rel="clickover" data-content="'.$tpop.'" data-original-title="'.$lmeal_title.'"><h2>'.$lmeal_title.'</h2>';

@@ -19,5 +19,15 @@ Class Option_model extends CI_Model {
       $return = $toption->create_option($post_array);
       return $return;   
     }
+	public function get_option($id){
+	$toption = new Option;
+	$return = $toption->get_option($id);
+	return $return;
+	}
+	public function update_option($post_array){
+	  $toption = new Option;
+      $return = $toption->update_option($post_array);
+      return $return;
+	}
 }
 ?>

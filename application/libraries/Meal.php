@@ -53,7 +53,7 @@ require_once "Item.php";
          $this->array_ini($param);
          //echo "after array ini <br />";
          $this->get_items();
-         //$this->get_options();
+         $this->get_options();
      }
      public function ini($new_name, $new_id, $new_desc, $new_price, $new_cat){
          /*
@@ -175,12 +175,13 @@ require_once "Item.php";
           $CI->db->where('MenuOptionList.Optionid IS NOT ', "NULL", FALSE);
           $result = $CI->db->get('MenuOptionList');
           foreach ($result->result() as $row){
-              echo "Option id for meal id $this->id :" . $row->Optionid . "<br />";
+              //echo "Option id for meal id $this->id :" . $row->Optionid . "<br />";
               array_push($t_itemarray, $row->Optionid);
           }
          foreach ($t_itemarray as $idnum){
              $myoption = new Option;
-              array_push($this->options, $myoption->load($idnum));
+			 $myoption->load($idnum);
+              array_push($this->options, $myoption);
           }
      }
      public function get_items() {
