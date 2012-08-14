@@ -227,6 +227,18 @@ require_once "Item.php";
               array_push($this->items, $myitem);
           }
      }
+	 public function put_items($titem){
+	 	array_push($this->items, $titem);
+	 }
+	 public function put_options($toption){
+	 	array_push($this->options, $toption);
+	 }
+	 public function clear_children(){
+	 	$options_len = count($this->options);
+		$items_len = count($this->items);
+		array_splice($this->items, 0, $items_len);
+		array_splice($this->options, 0, $options_len);
+	 }
      public function print_meal(){
          /*
           * function prints out in serial form with no format a meal object

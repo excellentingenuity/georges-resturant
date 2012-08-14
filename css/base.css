@@ -141,3 +141,14 @@ h1.welcome {
 	bottom:0;
 	left:25%;
 }
+ul.order-meal{
+	display:inline-block;
+	padding-left:1em;
+}
+.kitchen-order{
+	background-color:#DFF0D8;
+	border-color:#D6E9C6;
+	border-radius:5px;
+	margin-bottom:1.5em;
+	
+}

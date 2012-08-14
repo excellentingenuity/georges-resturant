@@ -20,6 +20,13 @@ function pop_confirm ($data){
 	myorderid = "";
 	$('.alert-message').html("Order Submitted!");
 	$('.alert').show();
-	window.location.href = "http://demo.excellentingenuity.com/ERF/gr/order/";
+	window.location.href = '../order';
 	//add popup to page to confirm
+}
+function order_ready(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){clear_order(data, myid)}});
+}
+function clear_order(data, myid){
+	var me = '#' + myid;
+	$(me).remove();
 }

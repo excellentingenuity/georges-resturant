@@ -225,7 +225,7 @@ if($my_type === 'edit'){
             		</script>
             		<script type="text/javascript">
             			$('body').on("click", '.edit', function(e){
-            				var base = "http://demo.excellentingenuity.com/ERF/gr/";
+            				var base = '../';//"http://demo.excellentingenuity.com/ERF/gr/";
             				var me = $(this).attr("id");
             				var parent = base + $(this).parent().attr("id") + "/edit";
             				$('.popover').hide();
@@ -234,7 +234,7 @@ if($my_type === 'edit'){
             		</script>
             		<script type="text/javascript">
             			$('a.edit').click(function(e){
-            				var base = "http://demo.excellentingenuity.com/ERF/gr/";
+            				var base = '../';//"http://demo.excellentingenuity.com/ERF/gr/";
             				var me = $(this).attr("id");
             				var parent = base + $(this).parent().attr("id") + "/edit";
             				$('.popover').hide();
@@ -288,8 +288,8 @@ if($my_type === 'edit'){
             			
             		</script>
             		<script>
-            			$('body').on("click", '.btn-large', function(e){
-						var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+            			$('body').on("click", '.btn-large.order', function(e){
+						var base = '../order';//"http://demo.excellentingenuity.com/ERF/gr/order";
             			var url = base + "/place_order";
             			var found = false;
 						if (t_meals.length > 0 ){
@@ -353,8 +353,8 @@ if($my_type === 'edit'){
             		});
             		</script>
             		<script>
-            			$('.btn-large').click(function(e){
-            			var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+            			$('.btn-large.order').click(function(e){
+            			var base = '../order';//"http://demo.excellentingenuity.com/ERF/gr/order";
             			var url = base + "/place_order";
             			var found = false;
 						if (t_meals.length > 0 ){
@@ -434,10 +434,13 @@ if($my_type === 'edit'){
             </div>
         </div>
         <div class="span2 well overview">
+        	<?php if (isset($order_id)){
+        		print('
         	<div class="overview-content">
         		&nbsp;
         	</div>
-        	<a class="submit-order btn btn-success" href="#">Submit Order</a>
+        	<a class="submit-order btn btn-success" href="#">Submit Order</a>');}
+        	?>
         </div>
         <script type="text/javascript">
 		    $(document).ready(function() {
@@ -448,13 +451,14 @@ if($my_type === 'edit'){
 		</script>
 		<script type="text/javascript">
 			$('.submit-order').click(function(e){
-				var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+				var base = '../order';//"http://demo.excellentingenuity.com/ERF/gr/order";
             	var url = base + "/place_order";
             	my_order[0] = myorderid;
             	my_order[1] = my_meals;
             	place_order(url, my_order);
 			});
 		</script>
+
         <?php $this->load->view('partials/right_side_bar'); ?> 
     </div>
 </div>

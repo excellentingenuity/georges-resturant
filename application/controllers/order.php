@@ -93,33 +93,41 @@ Class Order extends CI_Controller {
 		
 	}
     public function place_order(){
-    	/*$my_orderid;
-		$my_orderitems;
-		$my_mealid;
-		$my_orderoptions;
-    	if(isset($_POST['id'])){
-    		$my_orderid = $_POST['id'];
-			$this->fb->log("order id in place order of order php" . $my_orderid);
-    	}
-		if(isset($_POST['items'])){
-    		$my_orderitems = $_POST['items'];
-			$this->fb->log("order items in place order of order php" . $my_orderitems);
-    	}
-		if(isset($_POST['options'])){
-    		$my_orderoptions = $_POST['options'];
-			$this->fb->log("order options in place order of order php" . $my_orderoptions);
-    	}
-		if(isset($_POST['mealid'])){
-    		$my_mealid = $_POST['mealid'];
-			$this->fb->log("order mealid in place order of order php" . $my_mealid);
-    	}*/
+
     	$order;
 		if(isset($_POST['order'])){
 			$order = $_POST['order'];
-			$this->fb->log("order is $order");;;
+			$this->fb->log("order is $order");
 		}
 		$return = $this->Order_model->place_order($order);
 		return $return;
     }
+	public function kitchen(){
+		$mydata = array('orders'=>$this->Order_model->get_orders());
+		$this->fb->log("orders returned to controller");
+		$this->fb->log($mydata);
+		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Kitchen');
+        $this->load->view('partials/header', $hdata);
+		$this->load->view('order/kitchen', $mydata);
+        $this->load->view('partials/footer', $hdata); 
+	}
+	public function oven(){
+		$mydata = array('orders'=>$this->Order_model->get_orders());
+		$this->fb->log("orders returned to controller");
+		$this->fb->log($mydata);
+		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Oven');
+        $this->load->view('partials/header', $hdata);
+		$this->load->view('order/oven', $mydata);
+        $this->load->view('partials/footer', $hdata); 
+	}
+	public function order_set_ready(){
+		$id;
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+			$this->fb->log("order id is $id");
+		}
+		$return = $this->Order_model->order_ready($id);
+		return $return;
+	}
     
 }
