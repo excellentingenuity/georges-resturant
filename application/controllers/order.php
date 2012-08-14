@@ -84,6 +84,7 @@ Class Order extends CI_Controller {
 		$this->load->model('Meal_model');
 		$this->Meal_model->load_meals();
 		$order_id = $this->Order_model->__get('my_id');
+		$this->fb->log($order_id);
 		
         $this->step_name = "Menu";
         $this->data = array('Step' => $this->step_name, 'categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals, 'order_id'=>$order_id);
@@ -91,6 +92,34 @@ Class Order extends CI_Controller {
 
 		
 	}
-    
+    public function place_order(){
+    	/*$my_orderid;
+		$my_orderitems;
+		$my_mealid;
+		$my_orderoptions;
+    	if(isset($_POST['id'])){
+    		$my_orderid = $_POST['id'];
+			$this->fb->log("order id in place order of order php" . $my_orderid);
+    	}
+		if(isset($_POST['items'])){
+    		$my_orderitems = $_POST['items'];
+			$this->fb->log("order items in place order of order php" . $my_orderitems);
+    	}
+		if(isset($_POST['options'])){
+    		$my_orderoptions = $_POST['options'];
+			$this->fb->log("order options in place order of order php" . $my_orderoptions);
+    	}
+		if(isset($_POST['mealid'])){
+    		$my_mealid = $_POST['mealid'];
+			$this->fb->log("order mealid in place order of order php" . $my_mealid);
+    	}*/
+    	$order;
+		if(isset($_POST['order'])){
+			$order = $_POST['order'];
+			$this->fb->log("order is $order");;;
+		}
+		$return = $this->Order_model->place_order($order);
+		return $return;
+    }
     
 }

@@ -128,3 +128,16 @@ h1.welcome {
 .tab-content{
 	overflow:auto;
 }
+.overview{
+	min-height:100%;
+    padding:0px;
+    text-align:center;
+    margin-left:0px;
+    overflow:scroll;
+    position:relative;
+}
+.submit-order{
+	position:absolute;
+	bottom:0;
+	left:25%;
+}

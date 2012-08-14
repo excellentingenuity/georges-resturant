@@ -6,10 +6,13 @@
 */
 $my_orderid;
 $my_type = 'edit';
-/*if (isset($order_id)){
+
+if (isset($order_id)){
 	$my_orderid = $order_id;
 	$my_type = 'order';
-}*/
+	$this->fb->log("this order id is" . $my_orderid);
+	print('<span class="hidden order_id" id="'.$order_id.'"></span>');
+}
 $my_meals = array();
 foreach($meals as $meal){
 	array_push($my_meals, $meal);
@@ -25,10 +28,17 @@ if($my_type === 'edit'){
 '</div>');
 }
 ?>
+
+<div class="alert alert-success hide">
+    <a class="close" data-dismiss="alert" href="#">X</a>
+    <h4 class="alert-heading">Success</h4>
+    <p class="alert-message"></p>
+</div>
 <div class="container-fluid main-content">
+	
     <div class="row-fluid">
-        <div class="span10 menu-container">
-           
+        <div class="span8 menu-container">
+            
             <div class="tabbable tabs-left">
             	<ul class="nav nav-tabs">
             		<?php 
@@ -82,7 +92,7 @@ if($my_type === 'edit'){
 										$item_html;
 										//echo $item_name;
 										if($item_name != "None"){
-										$item_html = "<br /><ul id='items' class='unstyled menu_item_selector'><b>". $item_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $item_id ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $item_desc ."</li><li>$" . $item_price . "</li></ul>";
+										$item_html = "<br /><ul id='items' class='unstyled menu_item_selector'><b>". $item_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $item_id ."'  rel='". $lid ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $item_desc ."</li><li>$" . $item_price . "</li></ul>";
 										}else {
 											$item_html = "<br /><b>No available Items to add.</b>";
 										}
@@ -98,7 +108,7 @@ if($my_type === 'edit'){
 										$option_html;
 										//echo $item_name;
 										if($option_name != "None"){
-										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
+										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."'  rel='". $lid ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
 										}else {
 											$option_html = "<br /><b>No available Options to add.</b>";
 										}
@@ -109,7 +119,7 @@ if($my_type === 'edit'){
 									$tag_lmeal = str_replace(" ", "", $lmeal_title);
 									print '<div class="span3 menu-block" id="'.$lid.'" rel="clickover" data-content="'.$tpop.'" data-original-title="'.$lmeal_title.'"><h2>'.$lmeal_title.'</h2>';
 										print'<h3>$ '.$meal->__get('price').'</h3>';
-										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#'><i class='icon-pencil icon-white'></i>&nbsp;Edit</a></div>");
+										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-pencil icon-white'></i>&nbsp;".$my_type."</a></div>");
 									print '</div>';	
 								
 									if ($r == 3){
@@ -152,7 +162,7 @@ if($my_type === 'edit'){
 										$item_html;
 										//echo $item_name;
 										if($item_name != "None"){
-										$item_html = "<br /><ul id='items' class='unstyled menu_item_selector'><b>". $item_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $item_id ."' href='#'>&nbsp;<i class='icon-plus icon-white'></i></a><li>". $item_desc ."</li><li>$" . $item_price . "</li></ul>";
+										$item_html = "<br /><ul id='items' class='unstyled menu_item_selector'><b>". $item_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $item_id ."'  rel='". $lid ."' href='#'>&nbsp;<i class='icon-plus icon-white'></i></a><li>". $item_desc ."</li><li>$" . $item_price . "</li></ul>";
 										}else {
 											$item_html = "<br /><b>No available Items to add.</b>";
 										}
@@ -169,7 +179,7 @@ if($my_type === 'edit'){
 										$option_html;
 										//echo $item_name;
 										if($option_name != "None"){
-										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
+										$option_html = "<br /><ul id='options' class='unstyled menu_item_selector'><b>". $option_name ."</b>&nbsp;<a class='".$my_type." btn btn-success' id='". $option_id ."' rel='". $lid ."' href='#'><i class='icon-plus icon-white'></i></a><li>". $option_desc ."</li><li>$" . $option_price . "</li></ul>";
 										}else {
 											$option_html = "<br /><b>No available Options to add.</b>";
 										}
@@ -178,7 +188,7 @@ if($my_type === 'edit'){
 									}
 									print '<div class="span3 menu-block" id="'.$lid.'" rel="clickover" data-content="'.$tpop.'" data-original-title="'.$lmeal_title.'"><h2>'.$lmeal_title.'</h2>';
 										print'<h3>$ '.$meal->__get('price').'</h3>';
-										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#'><i class='icon-pencil icon-white'></i>&nbsp;Edit</a></div>");
+										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-pencil icon-white'></i>&nbsp;".$my_type."</a></div>");
 									print '</div>';
 								
 									if ($r == 3){
@@ -231,11 +241,220 @@ if($my_type === 'edit'){
             				edit_selected(me, parent);
             			});
             		</script>
+            		<script type="text/javascript">
+            		//order javascript
+            		var my_order = new Array();
+            		var my_meals = new Array();
+            		var t_meals = new Array();
+            		var n_meals = new Array();
+            		var my_nmeals = new Array();
+            		var d = 0;
+            		var myorderid = $('.order_id').attr("id");
+            			$('body').on("click", '.order', function(e){
+            				var me = $(this).attr("id");
+            				var parent = $(this).parent().attr("id");
+							var found = false;
+							if (t_meals.length > 0 ){
+								for(i=0; i<t_meals.length; i++){
+									if(t_meals[i].id == $(this).attr("rel")){
+										if(parent == "items"){
+											t_meals[i].items.push(me);
+											n_meals[i].items.push($(this).prev().html());
+											found = true;
+										} else if(parent == "options"){
+											t_meals[i].options.push(me);
+											n_meals[i].options.push($(this).prev().html());
+											found = true;
+										}
+									}
+								}
+							}
+							if(found == false){
+								var t_meal = new Meal();
+								var n_meal = new Meal();
+								t_meal.id = $(this).attr("rel");
+								n_meal.id = $('#'+$(this).attr("rel")).attr("data-original-title");
+								if(parent == "items"){
+	            					t_meal.items.push(me);
+	            					n_meal.items.push($(this).prev().html());
+	            				} else if(parent == "options"){
+	            					t_meal.options.push(me);
+	            					n_meal.options.push($(this).prev().html());
+	            				}
+	            				t_meals.push(t_meal);
+	            				n_meals.push(n_meal);
+							}
+            			});
+            			
+            		</script>
+            		<script>
+            			$('body').on("click", '.btn-large', function(e){
+						var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+            			var url = base + "/place_order";
+            			var found = false;
+						if (t_meals.length > 0 ){
+								for(i=0; i<t_meals.length; i++){
+									if(t_meals[i].id == $(this).attr("id")){
+										if(t_meals[i].items.length < 1){
+			            					t_meals[i].items.push("7");
+			            					n_meals[i].items.push("No Items");
+			            				}
+			            				if(t_meals[i].options.length < 1){
+			            					t_meals[i].options.push("10");
+			            					n_meals[i].options.push("No Options");
+			            				}
+										//check for items and options if null then add default
+										my_meals.push(t_meals[i]);
+										my_nmeals.push(n_meals[i]);
+										myid =  i;
+										d = i;
+										my_html = '<div class="overview-meal">'+n_meals[i].id+'&nbsp;<a  id="'+my.id+'" class="remove btn btn-danger" href="#"><i class="icon-remove icon-white"></i></a><ul   class="unstyled">';
+										for(v=0; v<n_meals[i].items.length; v++){
+											my_html += '<li>'+n_meals[i].items[v]+'</li>';
+										}
+										for(v=0; v<n_meals[i].options.length; v++){
+											my_html += '<li>'+n_meals[i].options[v]+'</li>';
+										}
+										my_html += '</ul></div>';
+										t_meals.splice(d, 1);
+										n_meals.splice(d, 1);
+										found = true;
+									}
+								}
+						}
+						if (found == false){
+							var t_meal = new Meal();
+							var n_meal = new Meal();
+							t_meal.id = $(this).attr("id");
+							n_meal.id = $(this).attr("rel");
+							if(t_meal.items.length < 1){
+            					t_meal.items.push("7");
+            					n_meal.items.push("No Items");
+            				}
+            				if(t_meal.options.length < 1){
+            					t_meal.options.push("10");
+            					n_meal.options.push("No Options");
+            				}
+            				my_meals.push(t_meal);
+            				my_nmeals.push(n_meal);
+            				myid = my_meals.length - 1;
+            				d = myid;
+							my_html = '<div class="overview-meal">'+n_meal.id+'&nbsp;<a  id="'+myid+'" class="remove btn btn-danger" href="#"><i class="icon-remove icon-white"></i></a><ul   class="unstyled">';
+							for(v=0; v<n_meal.items.length; v++){
+								my_html += '<li>'+n_meal.items[v]+'</li>';
+							}
+							for(v=0; v<n_meal.options.length; v++){
+								my_html += '<li>'+n_meal.options[v]+'</li>';
+							}
+							my_html += '</ul></div>';
+						}
+
+						$('.overview-content').append(my_html);
+            		});
+            		</script>
+            		<script>
+            			$('.btn-large').click(function(e){
+            			var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+            			var url = base + "/place_order";
+            			var found = false;
+						if (t_meals.length > 0 ){
+								for(i=0; i<t_meals.length; i++){
+									if(t_meals[i].id == $(this).attr("id")){
+										if(t_meals[i].items.length < 1){
+			            					t_meals[i].items.push("7");
+			            					n_meals[i].items.push("No Items");
+			            				}
+			            				if(t_meals[i].options.length < 1){
+			            					t_meals[i].options.push("10");
+			            					n_meals[i].options.push("No Options");
+			            				}
+										//check for items and options if null then add default
+										my_meals.push(t_meals[i]);
+										my_nmeals.push(n_meals[i]);
+										myid = i;
+										d = i;
+										my_html = '<div class="overview-meal">'+n_meals[i].id+'&nbsp;<a  id="'+myid+'" class="remove btn btn-danger" href="#"><i class="icon-remove icon-white"></i></a><ul   class="unstyled">';
+										for(v=0; v<n_meals[i].items.length; v++){
+											my_html += '<li>'+n_meals[i].items[v]+'</li>';
+										}
+										for(v=0; v<n_meals[i].options.length; v++){
+											my_html += '<li>'+n_meals[i].options[v]+'</li>';
+										}
+										my_html += '</ul></div>';
+										t_meals.splice(d, 1);
+										n_meals.splice(d, 1);
+										found = true;
+									}
+								}
+						}
+						if (found == false){
+							var t_meal = new Meal();
+							var n_meal = new Meal();
+							t_meal.id = $(this).attr("id");
+							n_meal.id = $(this).attr("rel");
+							if(t_meal.items.length < 1){
+            					t_meal.items.push("7");
+            					n_meal.items.push("No Items");
+            				}
+            				if(t_meal.options.length < 1){
+            					t_meal.options.push("10");
+            					n_meal.options.push("No Options");
+            				}
+            				my_meals.push(t_meal);
+            				my_nmeals.push(n_meal);
+            				myid = my_meals.length - 1;
+            				d = myid;
+							my_html = '<div class="overview-meal">'+n_meal.id+'&nbsp;<a id="'+myid+'" class="remove btn btn-danger" href="#"><i class="icon-remove icon-white"></i></a><ul   class="unstyled">';
+							for(v=0; v<n_meal.items.length; v++){
+								my_html += '<li>'+n_meal.items[v]+'</li>';
+							}
+							for(v=0; v<n_meal.options.length; v++){
+								my_html += '<li>'+n_meal.options[v]+'</li>';
+							}
+							my_html += '</ul></div>';
+						}
+						
+						$('.overview-content').append(my_html);
+            		});
+            		</script>
+            		<script>
+            		$('body').on("click", '.remove', function(e){
+            			///add remove button function here
+            			var mid = $(this).attr("id");
+            			my_meals.splice(mid, 1);
+            			daddy = $(this).parent();
+            			$(daddy).remove();
+            				
+            			
+            		});
+            		</script>
             		<!--add tab pane's here by categories -->
             	
             	</div>
             </div>
         </div>
+        <div class="span2 well overview">
+        	<div class="overview-content">
+        		&nbsp;
+        	</div>
+        	<a class="submit-order btn btn-success" href="#">Submit Order</a>
+        </div>
+        <script type="text/javascript">
+		    $(document).ready(function() {
+		        
+		            sizer("overview", .80);
+		      		
+		    });
+		</script>
+		<script type="text/javascript">
+			$('.submit-order').click(function(e){
+				var base = "http://demo.excellentingenuity.com/ERF/gr/order";
+            	var url = base + "/place_order";
+            	my_order[0] = myorderid;
+            	my_order[1] = my_meals;
+            	place_order(url, my_order);
+			});
+		</script>
         <?php $this->load->view('partials/right_side_bar'); ?> 
     </div>
 </div>

@@ -24,6 +24,7 @@
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-tab.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/bootstrap-modal.js"></script>
         <script type="text/javascript" src="<?php print(base_url()); ?>/js/interface.js"></script>
+        <script type="text/javascript" src="<?php print(base_url()); ?>/js/meal.js"></script>
         
         
         <title><?php print($Name);?> | <?php print($Page);?></title>
