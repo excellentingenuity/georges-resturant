@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container kitchen-container">
 
 	<div class="kitchen-row row">
 <?php
@@ -49,14 +49,18 @@ foreach($orders as $order){
 }
 ?>
 <script type="text/javascript">
-	$('body').on("click", '.kitchen-order', function(e){
-		var base = '../order';//"http://demo.excellentingenuity.com/ERF/gr/order";
-        var url = base + "/order_set_ready";
-        var me = $(this).attr("id");
-        order_ready(url, me);
-	});
-</script>			
 
+</script>			
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+			var base = '../order';
+			var url = base + "/refresh_orders";
+			setTimeout(function(){
+				refresh_orders(url);
+			},60000);
+	});
+</script>
 
 
 	</div>

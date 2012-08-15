@@ -152,3 +152,27 @@ ul.order-meal{
 	margin-bottom:1.5em;
 	
 }
+.my_message {
+	background-color:#DFF0D8;
+	border-color:#D6E9C6;
+	border-radius:5px;
+	margin-bottom:.5em;
+	width:96%;
+    margin-left:0px;
+	min-height:3em;
+	font-size:1.2em;
+}
+.myorder{
+	
+	border-radius:5px;
+	margin-bottom:1.5em;
+	
+}
+.isready{
+	background-color:#DFF0D8;
+	border-color:#D6E9C6;
+}
+.notready{
+	background-color:#F2DEDE;
+	border-color:#EED3D7;	
+}

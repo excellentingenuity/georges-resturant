@@ -32,6 +32,8 @@
                             $this->session->set_userdata('staff_name', $this->input->post('staff_name'));
                             $my_perms = $this->Staff_model->get_permission($this->input->post('staff_name'));
                             $this->session->set_userdata('permission_level', $my_perms->permission);
+							$myid = $this->Staff_model->get_my_id($this->input->post('staff_name'));
+							$this->session->set_userdata('staff_id', $myid);
                             redirect('home');
                  }
          }

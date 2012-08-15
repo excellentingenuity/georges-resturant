@@ -30,3 +30,42 @@ function clear_order(data, myid){
 	var me = '#' + myid;
 	$(me).remove();
 }
+function get_messages(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){auto_get_messages(data)}});
+}
+function auto_get_messages(data){
+	$('.messages').html(data);
+	setTimeout(function(){
+		var myid = $('.messages').attr("id");
+		var base = $('.my-url').attr("id");
+		var url = base + 'message/get_messages';
+		get_messages(url, myid);
+	},60000);
+}
+function message_read(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){message_clear(data, myid)}});
+}
+function message_clear(date, myid){
+	var me = 'p#' + myid;
+	$(me).remove();
+}
+function refresh_orders(url){
+	$.ajax({type:"POST", url:url, dataType: "html", success:function(data){replace_orders(data)}});
+}
+function replace_orders(data){
+	
+		$('.kitchen-container').replaceWith(data);
+	
+}
+function order_served(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){clear_order(data, myid)}});
+}
+function refresh_myorders(url){
+	$.ajax({type:"POST", url:url, dataType: "html", success:function(data){replace_myorders(data)}});
+}
+function replace_myorders(data){
+	
+	$('.myorders-container').replaceWith(data);
+
+}
+
