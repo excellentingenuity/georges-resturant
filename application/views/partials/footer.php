@@ -8,4 +8,5 @@
     </body>
     <script type="text/javascript" src="<?php print(base_url()); ?>/js/kitchen.js"></script>
     <script type="text/javascript" src="<?php print(base_url()); ?>/js/my_orders.js"></script>
+    <script type="text/javascript" src="<?php print(base_url()); ?>/js/staff.js"></script>
 </html>

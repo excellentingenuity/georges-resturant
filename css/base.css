@@ -176,3 +176,14 @@ ul.order-meal{
 	background-color:#F2DEDE;
 	border-color:#EED3D7;	
 }
+.member{
+	list-style:none;
+	margin-bottom:.5em;
+}
+.staff-name{
+	display:inline;
+	
+}
+.edit-member{
+	float:right;
+}

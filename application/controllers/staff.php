@@ -52,4 +52,52 @@
         $this->session->unset_userdata('staff_name');
         redirect('home');
      }
+	 public function crud(){
+	 	
+		 $this->load->library('form_validation');
+         $this->form_validation->set_rules('first_name', 'First Name', 'required');
+		 $this->form_validation->set_rules('last_name', 'Last Name', 'required');
+		 $this->form_validation->set_rules('staff_name', 'Staff Name', 'required');
+         $this->form_validation->set_rules('passcode', 'Passcode', 'required|min_length[4]');
+		 $this->form_validation->set_rules('permission', 'Permission', 'required');
+		 $data = array(
+		 	'firstname'=>$this->input->post('first_name'),
+			'lastname'=>$this->input->post('last_name'),
+			'staff_name'=>$this->input->post('staff_name'),
+			'passcode'=>$this->input->post('passcode'),
+			'permission'=>$this->input->post('permission'),
+		 );
+		 if ($this->form_validation->run() !== false) {
+			$result = $this->Staff_model->addupdate($data);
+		 }
+	 	$r = $this->Staff_model->get_all_staff();
+		$this->load->model('Permission_model');
+		$s = $this->Permission_model->get_permission_list();
+	 	$data = array('staff' => $r, 'mypermissions'=>$s);
+		$this->fb->log($data);
+		 $hdata = array('Name' => $this->Name, 'Version' => $this->Version, 'Page' => 'Staff Login');
+         $this->load->view('partials/header', $hdata);
+		 $this->load->view('staff/crud', $data);
+         $this->load->view('partials/footer', $hdata);
+	 }
+	 public function get_member(){
+	 	$id;
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+		}
+	 	$r = $this->Staff_model->get_staff_member($id);
+		$p = $this->Staff_model->get_permission_by_id($id);
+		$this->fb->log($p);
+		$this->fb->log($r);
+		$foo = new stdClass();
+		foreach ($r as $key=>$value){
+			$foo->$key=$value;
+		}
+		foreach ($p as $key=>$value){
+			$foo->$key=$value;
+		}
+		$return = json_encode($foo);
+		
+		echo $return;
+	 }
  }

@@ -61,11 +61,21 @@ function order_served(url, myid){
 	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){clear_order(data, myid)}});
 }
 function refresh_myorders(url){
-	$.ajax({type:"POST", url:url, dataType: "html", success:function(data){replace_myorders(data)}});
+	$.ajax({type:"POST", url:url, data:{refresh:true}, dataType: "html", success:function(data){replace_myorders(data)}});
 }
 function replace_myorders(data){
 	
 	$('.myorders-container').replaceWith(data);
 
+}
+function get_staff_member(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "json", success:function(data){load_staff_form(data)}});
+}
+function load_staff_form(data){
+	$('#first_name').val(data.firstname);
+	$('#last_name').val(data.lastname);
+	$('#staff_name').val(data.staff_name);
+	$('#passcode').val(data.passcode);
+	$("#permission").val(data.permission.toString()).attr("selected", "selected");
 }
 

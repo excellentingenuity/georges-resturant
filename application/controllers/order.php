@@ -141,12 +141,20 @@ Class Order extends CI_Controller {
 		$this->load->view('order/kitchen', $mydata);
 	}
 	public function my_orders(){
+		$refresh = false;
+		if(isset($_POST['refresh'])){
+			$refresh = true;
+		}
 		$myid = $this->session->userdata['staff_id'];
 		$mydata = array('orders'=>$this->Order_model->get_my_orders($myid));
 		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'My Orders');
-        $this->load->view('partials/header', $hdata);
-		$this->load->view('order/my_orders', $mydata);
-        $this->load->view('partials/footer', $hdata); 
+		if($refresh == true){
+			$this->load->view('order/my_orders', $mydata);
+		}else {
+	        $this->load->view('partials/header', $hdata);
+			$this->load->view('order/my_orders', $mydata);
+	        $this->load->view('partials/footer', $hdata); 
+		}
 	}
 	public function order_served(){
 		$id;
