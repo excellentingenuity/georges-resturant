@@ -159,7 +159,7 @@ Class Order_model extends CI_Model {
 		$CI->load->model('Option_model');
 		$CI->db->where('isPlaced',1);
 		$CI->db->where('Staffid',$id);
-		$CI->db->where('isServed',0);
+		$CI->db->where('paid',0);
 		$CI->db->select('idOrders, Tableid, isReady');
 		$qr = $CI->db->get('Orders');
 		$orders = array();
@@ -215,7 +215,70 @@ Class Order_model extends CI_Model {
 		}
 		return $orders;
 	}
-
+	public function get_order($id){
+		
+		$CI =& get_instance();
+		$CI->load->model('Meals_model');
+		$CI->load->model('Item_model');
+		$CI->load->model('Option_model');
+		$CI->db->where('isPlaced',1);
+		$CI->db->where('idOrders',$id);
+		$CI->db->where('isServed',0);
+		$CI->db->select('idOrders, Tableid');
+		$qr = $CI->db->get('Orders');
+		$orders = array();
+		if($qr->num_rows > 0){
+			$r = $qr->result();
+			$CI->fb->log("orders by id that are placed");
+			$CI->fb->log($r);
+			foreach($r as $oid){
+				$last_meal_num = '';
+				$last_order_id = '';
+				$meals = array();
+				$order = array();
+				$CI->db->where('OrderID', $oid->idOrders);
+				$q = $CI->db->get('Order_Items');
+				if($q->num_rows > 0){
+					$torders = $q->result();
+					$CI->fb->log("order items by order id");
+					$CI->fb->log($torders);
+					usort($torders, array($this, "sort_meals"));
+					foreach ($torders as $aorder){
+						$CI->fb->log("this aorder items by order id");
+						$CI->fb->log($aorder);
+						if($last_meal_num == $aorder->Meal_num && $last_order_id == $aorder->OrderID){
+							if($aorder->ItemID != Null && $aorder->ItemID != ''){
+								$titem = $CI->Item_model->get_item($aorder->ItemID);
+								$meals[$last_meal_num]->put_items($titem);
+							}
+							if($aorder->OptionID != Null && $aorder->OptionID != ''){
+								$toption = $CI->Option_model->get_option($aorder->OptionID);
+								$meals[$last_meal_num]->put_options($toption);
+							}
+							
+						}else{
+							$tmeal = $CI->Meals_model->get_meal($aorder->MealID);
+							$tmeal->clear_children();
+							if($aorder->ItemID != Null && $aorder->ItemID != ''){
+								$titem = $CI->Item_model->get_item($aorder->ItemID);
+								$tmeal->put_items($titem);
+							}
+							if($aorder->OptionID != Null && $aorder->OptionID != ''){
+								$toption = $CI->Option_model->get_option($aorder->OptionID);
+								$tmeal->put_options($toption);
+							}
+							array_push($meals, $tmeal);
+						}
+						$last_meal_num = $aorder->Meal_num;
+						$last_order_id  = $aorder->OrderID;
+					}
+					$order = array ('id'=>$oid->idOrders, 'table'=>$oid->Tableid, 'meals'=>$meals);
+				}
+				array_push($orders, $order);
+			}
+		}
+		return $orders;
+	}
 public function order_served($id){
 		$CI =& get_instance();
 		$CI->db->where('idOrders', $id);

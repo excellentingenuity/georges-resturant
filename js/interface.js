@@ -58,7 +58,11 @@ function replace_orders(data){
 	
 }
 function order_served(url, myid){
-	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){clear_order(data, myid)}});
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){advance_order(data, myid)}});
+}
+function advance_order(data, myid){
+	var me = '#' + myid;
+	$(me).removeClass('isready').addClass('isserved');
 }
 function refresh_myorders(url){
 	$.ajax({type:"POST", url:url, data:{refresh:true}, dataType: "html", success:function(data){replace_myorders(data)}});

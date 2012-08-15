@@ -170,5 +170,14 @@ Class Order extends CI_Controller {
 		$this->Message_model->send_message($data->Staffid, $message);*/
 		return $return;
 	}
+	public function print_reciept(){
+		$id;
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+			$this->fb->log("order id is $id");
+			$mydata = $this->Order_model->get_order($id);
+			$this->fb->log($mydata);
+		}
+	}
     
 }
