@@ -73,6 +73,16 @@
 		$data = array('categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals);
 		$this->load->view('print_menu', $data);
 	}
+	public function delete(){
+		$id;
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+		
+			$this->load->model('Meals_model');
+			$return = $this->Meals_model->delete($id);
+			return $return;
+		}
+	}
 	
 }
  ?>

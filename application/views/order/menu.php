@@ -120,6 +120,9 @@ if($my_type === 'edit'){
 									print '<div class="span3 menu-block" id="'.$lid.'" rel="clickover" data-content="'.$tpop.'" data-original-title="'.$lmeal_title.'"><h2>'.$lmeal_title.'</h2>';
 										print'<h3>$ '.$meal->__get('price').'</h3>';
 										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-pencil icon-white'></i>&nbsp;".$my_type."</a></div>");
+										if($my_type === 'edit'){
+											print("<div id='meals'><a class='delete btn btn-large btn-danger' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-remove icon-white'></i>&nbsp;Delete</a></div>");
+											}
 									print '</div>';	
 								
 									if ($r == 3){
@@ -189,6 +192,9 @@ if($my_type === 'edit'){
 									print '<div class="span3 menu-block" id="'.$lid.'" rel="clickover" data-content="'.$tpop.'" data-original-title="'.$lmeal_title.'"><h2>'.$lmeal_title.'</h2>';
 										print'<h3>$ '.$meal->__get('price').'</h3>';
 										print("<div id='meals'><a class='".$my_type." btn btn-large btn-success' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-pencil icon-white'></i>&nbsp;".$my_type."</a></div>");
+										if($my_type === 'edit'){
+											print("<div id='meals'><a class='delete btn btn-large btn-danger' id='". $lid ."' href='#' rel='".$lmeal_title."'><i class='icon-remove icon-white'></i>&nbsp;Delete</a></div>");
+											}
 									print '</div>';
 								
 									if ($r == 3){
@@ -225,7 +231,7 @@ if($my_type === 'edit'){
             		</script>
             		<script type="text/javascript">
             			$('body').on("click", '.edit', function(e){
-            				var base = '../';//"http://demo.excellentingenuity.com/ERF/gr/";
+            				var base = $('.base_url').attr("id");//'../';//"http://demo.excellentingenuity.com/ERF/gr/";
             				var me = $(this).attr("id");
             				var parent = base + $(this).parent().attr("id") + "/edit";
             				$('.popover').hide();
@@ -234,7 +240,7 @@ if($my_type === 'edit'){
             		</script>
             		<script type="text/javascript">
             			$('a.edit').click(function(e){
-            				var base = '../';//"http://demo.excellentingenuity.com/ERF/gr/";
+            				var base = $('.base_url').attr("id");//'../';//"http://demo.excellentingenuity.com/ERF/gr/";
             				var me = $(this).attr("id");
             				var parent = base + $(this).parent().attr("id") + "/edit";
             				$('.popover').hide();
@@ -428,6 +434,22 @@ if($my_type === 'edit'){
             			
             		});
             		</script>
+            		<script type="text/javascript">
+            			$('body').on("click", '.delete', function(e){
+            				var mid = $(this).attr("id");
+            				var base = $('.base_url').attr("id");//'../menu';//"http://demo.excellentingenuity.com/ERF/gr/order";
+        					var url = base + "menu/delete";
+            				delete_meal(mid);
+            			});
+            		</script>
+            		<script type="text/javascript">
+            			$('a.delete').click(function(e){
+            				var mid = $(this).attr("id");
+            				var base = $('.base_url').attr("id");//'../menu';//"http://demo.excellentingenuity.com/ERF/gr/order";
+        					var url = base + "menu/delete";
+            				delete_meal(url, mid);
+            			});
+            		</script>
             		<!--add tab pane's here by categories -->
             	
             	</div>
@@ -462,3 +484,4 @@ if($my_type === 'edit'){
         <?php $this->load->view('partials/right_side_bar'); ?> 
     </div>
 </div>
+<span id="<?php print(base_url()); ?>" class="hidden base_url"></span>

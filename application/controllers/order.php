@@ -61,7 +61,7 @@ Class Order extends CI_Controller {
 		}
 		if ($complete == FALSE){ 
         $this->load->Model('Table_model');
-        $tables = $this->Table_model->get_table_by_assigned($this->staff_id);//get a list of tables for that waitstaff based on waitstaff id
+        $tables = $this->Table_model->get_all_tables();//$tables = $this->Table_model->get_table_by_assigned($this->staff_id);//get a list of tables for that waitstaff based on waitstaff id
 		
         $this->step_name = "Select Table";
         $this->data = array('Step' => $this->step_name, 'tables' => $tables);

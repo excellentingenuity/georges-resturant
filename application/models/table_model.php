@@ -18,6 +18,15 @@ class Table_model extends CI_Model {
 
 		return $result;
 	}
+	public function get_all_tables(){
+		//echo $staff_id;
+		//$this->db->where('Staff_id', $staff_id);//Table_Assignments
+		$this->db->select('Table_id');
+		$qr = $this->db->get('Table_Assignments');
+		$result = $qr->result();
+
+		return $result;
+	}
 	
 }
 ?>    

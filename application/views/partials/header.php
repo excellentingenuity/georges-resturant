@@ -36,10 +36,43 @@
            <div class="row-fluid">
                <div class="navbar">
                    <div class="navbar-inner">
-                      <div class="container-fluid">
+                      <div class="container">
                           <a class="brand" href="<?php print(base_url()); ?>"><?php print($Name);?></a> 
                           <!-- TODO: add nav menu generation code here -->
-                          <a class="brand pull-right" href="<?php print(base_url() . "login/logout");?>">Logout</a>
+                          <ul class="nav">
+                          <?php
+                          $menu_html = '';
+                          switch ($Page) {
+                              case 'Create Meal':
+                                  $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+                                  break;
+                              
+							  case 'Create Item':
+                                  $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+                                  break;
+							  case 'Create Option':
+                                  $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';								  
+								  break;
+							  case 'Menu':
+                                  $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';								  
+								  break;
+                          }
+                          print($menu_html);
+                          ?>
+                          </ul>
+                          <ul class="nav logout">
+                          <li>
+                          <a class="logout" href="<?php print(base_url() . "login/logout");?>">Logout</a>
+                          </li>
+                          </ul>
                       </div> 
                    </div>
                </div>

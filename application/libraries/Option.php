@@ -75,7 +75,7 @@
 		$t_array = array(
             'Name' => $this->name,
             'Description' => $this->description,
-            'Cost_Increase' => $this->cost,
+            'Cost_Increase' => $this->cost_increase,
             'Order_by'=>$this->order_by,
          );
          $CI =& get_instance();

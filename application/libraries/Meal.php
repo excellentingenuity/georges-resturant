@@ -264,5 +264,11 @@ require_once "Item.php";
            $t_obj->load($id);
 		   return $t_obj;
 	 }
+	 public function delete($id){
+	 	 $CI =& get_instance();
+		 $CI->db->where('idMeals', $id);
+         $return = $CI->db->delete('Meals');
+		 return $return;
+	 }
  }
 ?>

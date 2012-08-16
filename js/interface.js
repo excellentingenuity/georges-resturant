@@ -89,4 +89,10 @@ function remove_staff_member(data, myid){
 	var me = 'li#' + myid;
 	$(me).remove();
 }
-
+function delete_meal(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){remove_menu_meal(data, myid)}});
+}
+function remove_menu_meal(data, myid){
+	var me = 'div#' + myid;
+	$(me).remove();
+}

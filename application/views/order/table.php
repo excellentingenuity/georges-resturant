@@ -7,7 +7,7 @@
 $view_array = array();
 //print_r($tables);
 foreach($tables as $row){
-	array_push($view_array, $row->Table_id);
+	$view_array[$row->Table_id]=$row->Table_id;
 }
 ?>
 <div class="container-fluid main-content">

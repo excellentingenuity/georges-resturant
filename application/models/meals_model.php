@@ -52,6 +52,11 @@ Class Meals_model extends CI_Model {
       $return = $tmeal->update_meal($post_array);
       return $return;
 	}
+	public function delete($id){
+		$tmeal = new Meal;
+		$return = $tmeal->delete($id);
+     	 return $return; 
+	}
 
        
 }
