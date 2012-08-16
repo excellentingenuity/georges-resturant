@@ -97,5 +97,11 @@ class Staff_model extends CI_Model {
 			$this->db->insert('Permissions', $ndata);
 		}
   }
+	public function delete($id){
+			$this->db->where('idStaff', $id);
+			$this->db->delete('Staff');
+
+		
+	}
 }
 ?>

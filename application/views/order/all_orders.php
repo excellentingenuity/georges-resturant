@@ -68,7 +68,7 @@ foreach($orders as $order){
 	$(document).ready(function(){
 		
 			var base = '../order';
-			var url = base + "/my_orders";
+			var url = base + "/all_orders";
 			setTimeout(function(){
 				refresh_myorders(url);
 			},60000);

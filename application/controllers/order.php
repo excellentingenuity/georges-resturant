@@ -88,9 +88,6 @@ Class Order extends CI_Controller {
 		
         $this->step_name = "Menu";
         $this->data = array('Step' => $this->step_name, 'categories'=>$this->Category_model->my_categories, 'meals'=>$this->Meal_model->my_meals, 'order_id'=>$order_id);
-		
-
-		
 	}
     public function place_order(){
 
@@ -172,12 +169,33 @@ Class Order extends CI_Controller {
 	}
 	public function print_reciept(){
 		$id;
+		$myhtml;
 		if(isset($_POST['id'])){
 			$id = $_POST['id'];
 			$this->fb->log("order id is $id");
 			$mydata = $this->Order_model->get_order($id);
+			$this->fb->log("mydata in print recipet returned from the model is");
 			$this->fb->log($mydata);
+			$my_order = $mydata[0];
+			$myhtml = '<h2>Order: '.$my_order['id'] . '&nbsp;&nbsp;&nbsp;Table: '. $my_order['table'].'</h2><br />';
+			echo $myhtml;
 		}
+	}
+	public function get_all_orders(){
+		$refresh = false;
+		if(isset($_POST['refresh'])){
+			$refresh = true;
+		}
+		//$myid = $this->session->userdata['staff_id'];
+		$mydata = array('orders'=>$this->Order_model->get_all_orders());
+		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'My Orders');
+		if($refresh == true){
+			$this->load->view('order/all_orders', $mydata);
+		}else {
+	        $this->load->view('partials/header', $hdata);
+			$this->load->view('order/all_orders', $mydata);
+	        $this->load->view('partials/footer', $hdata); 
+		}	
 	}
     
 }

@@ -115,17 +115,33 @@
     padding-right: 10px;
     padding-left: 10px;
   }
-  .modal {
+  /*.modal {
     position: absolute;
     top: 10px;
     right: 10px;
     left: 10px;
     width: auto;
     margin: 0;
+  }*//*suggested android modal fix*/
+  .modal {
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    left: 3%;
+	bottom:3%;
+    width: auto;
+    margin: 0;
   }
-  .modal.fade.in {
+  modal-body{/*more android modal fix*/
+  	height:60%;
+  }
+  /*.modal.fade.in { more android modal fix
     top: auto;
-  }
+  }*/
+.modal.fade.in {
+margin-top: -25%;
+top: 50%;
+}
   .modal-header .close {
     padding: 10px;
     margin: -10px;

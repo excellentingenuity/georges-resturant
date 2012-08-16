@@ -82,4 +82,11 @@ function load_staff_form(data){
 	$('#passcode').val(data.passcode);
 	$("#permission").val(data.permission.toString()).attr("selected", "selected");
 }
+function delete_staff_member(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){remove_staff_member(data, myid)}});
+}
+function remove_staff_member(data, myid){
+	var me = 'li#' + myid;
+	$(me).remove();
+}
 

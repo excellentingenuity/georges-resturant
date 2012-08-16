@@ -100,4 +100,12 @@
 		
 		echo $return;
 	 }
+	public function delete(){
+		$id;
+		if(isset($_POST['id'])){
+			$id = $_POST['id'];
+		}
+		$return = $this->Staff_model->delete($id);
+		return $return;
+	}
  }

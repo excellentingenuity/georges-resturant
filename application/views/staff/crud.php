@@ -12,11 +12,13 @@ $this->fb->log($mypermissions);
 			<ul class="members-ul"><h2>Staff Members</h2>
 			<?php
 				foreach ($staff as $member){
-					print('<li class="member">');
+					print('<li class="member" id="'.$member->idStaff.'">');
 					print('<h3 class="staff-name">');
 					print($member->staff_name);
 					print('</h3>');
+					print('&nbsp;<a id="'.$member->idStaff.'" class="delete-member btn btn-danger" href="#"><i class="icon-remove icon-white"></i></a>');
 					print('&nbsp;<a id="'.$member->idStaff.'" class="edit-member btn btn-success" href="#"><i class="icon-plus icon-white"></i></a></li>');
+
 				}
 			?>
 			</ul>

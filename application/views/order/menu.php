@@ -18,7 +18,7 @@ foreach($meals as $meal){
 	array_push($my_meals, $meal);
 }
 if($my_type === 'edit'){
-	print('<div class="modal hide fade" id="editModal">'.
+	print('<div class="modal hide" id="editModal">'.
   '<div class="modal-header">'.
     '<button type="button" class="close" data-dismiss="modal">X</button>'.
     '<h3>Edit</h3>'.
