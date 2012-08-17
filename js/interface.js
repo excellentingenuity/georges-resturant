@@ -96,3 +96,10 @@ function remove_menu_meal(data, myid){
 	var me = 'div#' + myid;
 	$(me).remove();
 }
+function clear_order(url, myid){
+	$.ajax({type:"POST", url:url, data:{id:myid}, dataType: "html", success:function(data){remove_this_order(data, myid)}});
+}
+function remove_this_order(data, myid){
+	var me = 'div#' + myid;
+	$(me).remove();
+}

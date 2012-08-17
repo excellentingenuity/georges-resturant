@@ -52,6 +52,9 @@ foreach($orders as $order){
 		
 	}
 	print('</h3>');
+	if($served == 1){
+		print('<center><a class="btn btn-danger clear-order" id="'.$order['id'].'" href="#">Clear Order</a></center>');
+	}
 	print('</div>');
 }
 

@@ -147,8 +147,8 @@ class Meals extends CI_Controller {
                 'Description' => $this->input->post('description'),
                 'Price' => $this->input->post('price'),
                 'Categoryid' => $this->input->post('category'),
-                'Items' => $t_items,
-                'Options' => $t_options              
+                'Items' => $this->input->post('items'),
+                'Options' => $this->input->post('options')              
              );
 			 $return = $this->Meals_model->update_meal($post_array);
 		}

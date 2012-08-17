@@ -170,15 +170,16 @@ Class Order extends CI_Controller {
 	public function print_reciept(){
 		$id;
 		$myhtml;
-		if(isset($_POST['id'])){
-			$id = $_POST['id'];
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
 			$this->fb->log("order id is $id");
 			$mydata = $this->Order_model->get_order($id);
 			$this->fb->log("mydata in print recipet returned from the model is");
 			$this->fb->log($mydata);
-			$my_order = $mydata[0];
-			$myhtml = '<h2>Order: '.$my_order['id'] . '&nbsp;&nbsp;&nbsp;Table: '. $my_order['table'].'</h2><br />';
-			echo $myhtml;
+			$my_order = array('order'=>$mydata);
+			//$myhtml = '<h2>Order: '.$my_order['id'] . '&nbsp;&nbsp;&nbsp;Table: '. $my_order['table'].'</h2><br />';
+			//$html = array('html'=>$myhtml);
+			$this->load->view('order/receipt', $my_order);
 		}
 	}
 	public function get_all_orders(){
@@ -196,6 +197,13 @@ Class Order extends CI_Controller {
 			$this->load->view('order/all_orders', $mydata);
 	        $this->load->view('partials/footer', $hdata); 
 		}	
+	}
+	public function clear_order(){
+		if(isset($_GET['id'])){
+			$id = $_GET['id'];
+			$return = $this->Order_model->clear_order($id);
+			return $return;
+		}
 	}
     
 }

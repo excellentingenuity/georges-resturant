@@ -221,9 +221,10 @@ Class Order_model extends CI_Model {
 		$CI->load->model('Meals_model');
 		$CI->load->model('Item_model');
 		$CI->load->model('Option_model');
-		$CI->db->where('isPlaced',1);
+		//$CI->db->where('isPlaced',1);
 		$CI->db->where('idOrders',$id);
-		$CI->db->where('isServed',0);
+		//$CI->db->where('isServed',0);
+		$CI->db->where('paid',0);
 		$CI->db->select('idOrders, Tableid');
 		$qr = $CI->db->get('Orders');
 		$orders = array();
@@ -274,10 +275,10 @@ Class Order_model extends CI_Model {
 					}
 					$order = array ('id'=>$oid->idOrders, 'table'=>$oid->Tableid, 'meals'=>$meals);
 				}
-				array_push($orders, $order);
+				//array_push($orders, $order);
 			}
 		}
-		return $orders;
+		return $order;
 	}
 public function order_served($id){
 		$CI =& get_instance();
@@ -304,6 +305,7 @@ public function order_served($id){
 		$CI->load->model('Item_model');
 		$CI->load->model('Option_model');
 		$CI->db->where('isPlaced',1);
+		$CI->db->where('paid',0);
 		$CI->db->select('idOrders, Tableid, isReady, isServed');
 		$qr = $CI->db->get('Orders');
 		$orders = array();
@@ -358,6 +360,12 @@ public function order_served($id){
 			}
 		}
 		return $orders;
+	}
+	public function clear_order($id){
+		$CI =& get_instance();
+		$CI->db->where('idOrders',$id);
+		$mdata = array('paid'=>1);
+		$return = $CI->db->update('Orders',$mdata);
 	}
 }
 ?>
