@@ -270,5 +270,30 @@ require_once "Item.php";
          $return = $CI->db->delete('Meals');
 		 return $return;
 	 }
+	 public function update_meal($post_array){
+	 	$this->array_ini($post_array);
+		$CI =& get_instance();
+		$CI->db->where('idMeals', $this->id);
+		$t_array = array(
+            'Title' => $this->title,
+            'Description' => $this->description,
+            'Price' => $this->price,
+            'Categoryid' => $this->category,
+         );
+		 if($CI->db->update('Meals', $t_array)){
+         	$return = TRUE;    
+         	//echo "meal db insert is $return";
+         }
+		 $return = $this->update_child_items();
+		 return $return;
+		
+	 }
+	 public function update_child_items(){
+	 	$CI =& get_instance();
+		$CI->db->where('MenuOptionList.Mealid', $this->id);
+		$retrun = $CI->db->delete('MenuOptionList');
+		$retrun = $this->create_child_items();
+		return $retrun;
+	 }
  }
 ?>
