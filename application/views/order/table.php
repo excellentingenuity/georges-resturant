@@ -4,11 +4,8 @@
 *  Table View for Order controller - allows waitstaff to select table of the order.
 *  Version 1.0
 */
-$view_array = array();
-//print_r($tables);
-foreach($tables as $row){
-	$view_array[$row->Table_id]=$row->Table_id;
-}
+check_page_permission(333);
+
 ?>
 <div class="container-fluid main-content">
     <div class="row-fluid">

@@ -41,29 +41,185 @@
                           <!-- TODO: add nav menu generation code here -->
                           <ul class="nav">
                           <?php
+                          $myperm = $this->session->userdata('permission_level');
                           $menu_html = '';
                           switch ($Page) {
                               case 'Create Meal':
+                              	if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  
                                   $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  }
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  
                                   break;
                               
 							  case 'Create Item':
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  
                                   $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  }
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  
                                   break;
 							  case 'Create Option':
+								  if($myperm >= 666){
+									  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+									  
                                   $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
-								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';								  
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';	
+								  }
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  							  
 								  break;
 							  case 'Menu':
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
                                   $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
-								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';								  
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  }
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order">New Order</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  							  
 								  break;
+							  case 'Kitchen':
+							  	  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  	  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+							  break;
+							  case 'Oven':
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+							  break;
+							  case 'All Orders':
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order">New Order</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+									if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+							  		
+							  break;
+							  case 'My Orders':
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order">New Order</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+								  
+							  break;
+							  case 'Order':
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+								  if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+							  break;
+							  case 'Staff Edit':
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order">New Order</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		if($myperm >= 555){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  }
+								  if($myperm >= 666){
+								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'meals/create">Create Meal</a></li>';
+									$menu_html .= '<li><a class="head_nav" href="'.base_url().'items/create">Create Item</a></li>';
+								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
+								  }
+							  break; 
+							  case 'Home':
+							  	 if($myperm >= 666){
+								  	
+								  
+                                  $menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
+								  
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'staff/crud">Edit Staff</a></li>';
+								  }
+							  break;
+								  
                           }
                           print($menu_html);
                           ?>

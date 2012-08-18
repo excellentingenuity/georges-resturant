@@ -4,6 +4,7 @@
 *  Table View for Order controller - allows waitstaff to select add menu items to the order.
 *  Version 1.0
 */
+check_page_permission(666);
 $my_orderid;
 $my_type = 'edit';
 
@@ -40,7 +41,7 @@ if($my_type === 'edit'){
         <div class="span8 menu-container">
             
             <div class="tabbable tabs-left">
-            	<ul class="nav nav-tabs">
+            	<ul class="nav nav-tabs list-of-tabs">
             		<?php 
             		$i = 0;
             		foreach ($categories as $category){

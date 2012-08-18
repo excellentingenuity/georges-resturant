@@ -1,4 +1,5 @@
 <?php
+check_page_permission(666);
 ?>
 <h1>Edit Option</h1>
           <?php

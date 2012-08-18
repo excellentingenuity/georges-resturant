@@ -18,13 +18,14 @@ Class Home extends CI_Controller {
         $this->config_name = $this->Config_model->get_Name();
         $this->config_version = $this->Config_model->get_Version();
         check_session();
+		check_permission();
     }
     public function index() {
         
         
         $hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'Home');
         $this->load->view('partials/header', $hdata);
-        
+        $this->load->view('home/index');
         $this->load->view('partials/footer', $hdata);
        
     }    

@@ -4,6 +4,7 @@
 		<div class="span10">
 			<div class="row">
 <?php
+check_page_permission(333);
 $i = 0;
 foreach($orders as $order){
 	$ready = $order['isReady'];

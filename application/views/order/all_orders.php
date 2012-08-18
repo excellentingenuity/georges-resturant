@@ -1,3 +1,6 @@
+<?php
+check_page_permission(555);
+?>
 <div class="container-fluid myorders-container">
 
 	<div class="myorders-row row-fluid">

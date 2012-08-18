@@ -75,7 +75,7 @@
 		$s = $this->Permission_model->get_permission_list();
 	 	$data = array('staff' => $r, 'mypermissions'=>$s);
 		$this->fb->log($data);
-		 $hdata = array('Name' => $this->Name, 'Version' => $this->Version, 'Page' => 'Staff Login');
+		 $hdata = array('Name' => $this->Name, 'Version' => $this->Version, 'Page' => 'Staff Edit');
          $this->load->view('partials/header', $hdata);
 		 $this->load->view('staff/crud', $data);
          $this->load->view('partials/footer', $hdata);

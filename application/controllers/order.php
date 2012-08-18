@@ -189,7 +189,7 @@ Class Order extends CI_Controller {
 		}
 		//$myid = $this->session->userdata['staff_id'];
 		$mydata = array('orders'=>$this->Order_model->get_all_orders());
-		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'My Orders');
+		$hdata = array('Name' => $this->config_name, 'Version' => $this->config_version, 'Page' => 'All Orders');
 		if($refresh == true){
 			$this->load->view('order/all_orders', $mydata);
 		}else {

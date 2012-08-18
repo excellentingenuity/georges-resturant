@@ -1,5 +1,5 @@
 <?php
-
+check_page_permission(666);
 ?>
 <div class="container-fluid main-content">
     <div class="row-fluid">
