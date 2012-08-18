@@ -211,3 +211,50 @@ overflow-y: auto;
 	font-size:20px;
 	color:#FFFFFF !important;
 }
+.table{
+	border-radius:5px;
+	border:thin solid #000000;
+	text-align:center;
+	height:5em;
+	vertical-align:center;
+	font-size:16px;
+	
+}
+.large-booth{
+	border-radius:5px;
+	border:thin solid #000000;
+	text-align:center;
+	height:15em;
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+.large-booth-top{
+	border-radius:5px;
+	border-left:thin solid #000000;
+	border-right:thin solid #000000;
+	border-top:thin solid #000000;
+	text-align:center;
+	height:5em;
+	margin-bottom:0px;
+	padding-bottom:0px;
+}
+.large-booth-middle{
+	border-left:thin solid #000000;
+	border-right:thin solid #000000;
+	text-align:center;
+	height:5em;
+	margin-bottom:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	padding-top:0px;
+}
+.large-booth-bottom {
+	border-radius:5px;
+	border-left:thin solid #000000;
+	border-right:thin solid #000000;
+	border-bottom:thin solid #000000;
+	text-align:center;
+	height:5em;
+	margin-top:0px;
+	padding-top:0px;
+}
