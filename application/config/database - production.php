@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'erfmark_James';
-$db['default']['password'] = '%hyyx@2#RC';
-$db['default']['database'] = 'georges';
+$db['default']['password'] = 'protos66';
+$db['default']['database'] = 'erfmark_georges';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

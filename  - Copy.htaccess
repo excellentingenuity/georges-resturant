@@ -1,12 +1,12 @@
 # Options
-#Options -Multiviews
+Options -Multiviews
 Options +FollowSymLinks
 
 #Enable mod rewrite
 RewriteEngine On
 #the location of the root of your site
 #if writing for subdirectories, you would enter /subdirectory
-#RewriteBase /
+RewriteBase /ERF/gr
 
 #Removes access to CodeIgniter system folder by users.
 #Additionally this will allow you to create a System.php controller,

@@ -20,11 +20,11 @@ foreach($orders as $order){
 	}
 	$this->fb->log("orders given to  myorders view");
 	$this->fb->log($orders);
-	print('<div class="span4 myorder '.$myclass.'" id="'.$order['id'].'"><h2 class="myorder-num">&nbsp;&nbsp;&nbsp;Order: ');
+	print('<div class="span4 myorder '.$myclass.'" id="'.$order['id'].'"><h2 class="myorder-num">     Order: ');
 	$this->fb->log("this order is");
 	$this->fb->log($order);
 	print($order['id']);
-	print('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Table: ');
+	print('             Table: ');
 	print($order['table']);
 	print('</h2><h3>');
 	$meals = $order['meals'];

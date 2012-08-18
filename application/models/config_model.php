@@ -40,4 +40,4 @@ class Config_model extends CI_Model {
         return $this->Single_login;
     }
 }
-?> 
+?>

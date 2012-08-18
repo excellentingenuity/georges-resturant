@@ -53,8 +53,6 @@
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'options/create">Create Option</a></li>';
 								  }
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
