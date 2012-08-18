@@ -58,7 +58,7 @@
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  
                                   break;
@@ -77,7 +77,7 @@
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  
                                   break;
@@ -95,7 +95,7 @@
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  							  
 								  break;
@@ -108,12 +108,11 @@
 								  }
 								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order">New Order</a></li>';
 								    $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/my_orders">My Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
+							  		
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  							  
 								  break;
@@ -122,7 +121,7 @@
 							  	  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  if($myperm >= 666){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
@@ -133,11 +132,11 @@
 								  }
 							  break;
 							  case 'Oven':
-								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+								  $menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  if($myperm >= 666){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
@@ -166,7 +165,7 @@
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  if($myperm >= 666){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
@@ -182,7 +181,7 @@
 								  if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  if($myperm >= 666){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
@@ -198,7 +197,7 @@
 							  		if($myperm >= 555){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/get_all_orders">All Orders</a></li>';
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/oven">Oven Orders</a></li>';
-							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Oven Kitchen</a></li>';
+							  		$menu_html .= '<li><a class="head_nav" href="'.base_url().'order/kitchen">Kitchen Orders</a></li>';
 								  }
 								  if($myperm >= 666){
 								  	$menu_html .= '<li><a class="head_nav" href="'.base_url().'menu">Menu</a></li>';
