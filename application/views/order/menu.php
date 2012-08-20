@@ -135,9 +135,9 @@ if($my_type === 'edit'){
 									}
 								}
 							}
-							//if($r!=3){
+							if($r!=0){
 							print("</div>");
-							//}
+							}
 							echo "</div>";
             			}else{
             				$tag_lname = str_replace(" ", "", $lname);
