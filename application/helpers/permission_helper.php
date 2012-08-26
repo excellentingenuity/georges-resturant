@@ -12,16 +12,16 @@
 			break;
 			
 			case 555:
-				redirect('order/all_orders');
+				redirect('order/get_all_orders', 'refresh');
 			break;
 			case 444:
-				redirect('order/kitchen');
+				redirect('order/kitchen', 'refresh');
 			break;
 			case 333:
-				redirect('order');
+				redirect('order', 'refresh');
 			break;
 			default:
-				redirect('order');
+				redirect('order', 'refresh');
 			break;
 		}
      
@@ -42,16 +42,16 @@
 				break;
 				
 				case 555:
-					redirect('order/all_orders');
+					redirect('order/get_all_orders', 'refresh');
 				break;
 				case 444:
-					redirect('order/kitchen');
+					redirect('order/kitchen', 'refresh');
 				break;
 				case 333:
-					redirect('order');
+					redirect('order', 'refresh');
 				break;
 				default:
-					redirect('order');
+					redirect('order', 'refresh');
 				break;
 			}
 		}

@@ -4,7 +4,7 @@
 *  Table View for Order controller - allows waitstaff to select table of the order.
 *  Version 1.0
 */
-check_page_permission(333);
+//check_page_permission(333);
 
 ?>
 <div class="container-fluid main-content">

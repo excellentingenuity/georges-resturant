@@ -2,7 +2,7 @@
 
 	<div class="kitchen-row row">
 <?php
-check_page_permission(444);
+//check_page_permission(444);
 foreach($orders as $order){
 	$i = 0;
 	$this->fb->log("orders given to  kitchen view");
