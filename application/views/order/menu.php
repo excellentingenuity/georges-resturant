@@ -4,7 +4,7 @@
 *  Table View for Order controller - allows waitstaff to select add menu items to the order.
 *  Version 1.0
 */
-check_page_permission(666);
+//check_page_permission(666);
 $my_orderid;
 $my_type = 'edit';
 

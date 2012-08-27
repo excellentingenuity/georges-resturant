@@ -228,6 +228,10 @@ overflow-y: auto;
 	font-size:16px;
 	
 }
+.side-select-btn {
+	width:6em;
+	height:6em;
+}
 .large-booth{
 	border-radius:5px;
 	border:thin solid #000000;
@@ -235,7 +239,11 @@ overflow-y: auto;
 	height:15em;
 	margin-bottom:0px;
 	padding-bottom:0px;
+	width:10em;
+	z-index:2;
+	position:absolute;
 }
+
 .large-booth-top{
 	border-radius:5px;
 	border-left:thin solid #000000;
